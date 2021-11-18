@@ -1,0 +1,40 @@
+/**
+ *
+ * @Copyright 2021 VOID SOFTWARE, S.A.
+ *
+ */
+/**
+ *
+ * @Copyright 2021 VOID SOFTWARE, S.A.
+ *
+ */
+body {
+  margin: 0;
+}
+
+/**
+ *
+ * @Copyright 2021 VOID SOFTWARE, S.A.
+ *
+ */
+.ct-header {
+  display: inline-flex;
+}
+.ct-header > div {
+  height: 20px;
+}
+
+/**
+ *
+ * @Copyright 2021 VOID SOFTWARE, S.A.
+ *
+ */
+.ct-sidebar {
+  width: 200px;
+}
+.ct-sidebar .ct-sidebar-group-item {
+  padding: 10px 20px;
+  background-color: #F3F3F3;
+}
+
+/*# sourceMappingURL=main.css.map */
