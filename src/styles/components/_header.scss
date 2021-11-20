@@ -6,8 +6,29 @@
 
 .ct-header {
     display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: black;
+    color: white;
+    font-size: 14px;
 
-    > div {
-        height: 20px;
+    &__day {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 30px;
+    }
+
+    &__hour-view-wrapper {
+        display: flex;
+        justify-content: space-around;
+        height: 30px;
+
+        &__hour {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid grey;
+        }
     }
 }

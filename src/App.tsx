@@ -12,6 +12,7 @@ const groups: Array<Group> = [
     { id: 1, title: 'Group 1' },
     { id: 2, title: 'Group 2' },
     { id: 3, title: 'Group 3' },
+    { id: 4, title: 'Lucas' },
 ]
 
 function App() {

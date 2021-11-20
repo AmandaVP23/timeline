@@ -5,10 +5,16 @@
  */
 
 .ct-sidebar {
+    display: inline-block;
     width: 200px;
 
     .ct-sidebar-group-item {
-        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        height: 30px;
         background-color: #F3F3F3;
+        border-top: 1px solid grey;
+        border-bottom: 1px solid grey;
+        border-left: 1px solid grey;
     }
 }

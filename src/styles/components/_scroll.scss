@@ -1,0 +1,23 @@
+/**
+ *
+ * @Copyright 2021 VOID SOFTWARE, S.A.
+ *
+ */
+
+ .ct-scroll {
+     display: inline-block;
+     background-color: darkslategray;
+
+     &__line{
+        display: flex;
+        flex-direction: row;
+     }
+
+     &__column {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border: 1px solid grey;
+        min-height: 30px;
+     }
+ }

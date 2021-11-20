@@ -17,11 +17,66 @@ body {
  * @Copyright 2021 VOID SOFTWARE, S.A.
  *
  */
-.ct-header {
-  display: inline-flex;
+.rt-outer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
-.ct-header > div {
-  height: 20px;
+
+/**
+ *
+ * @Copyright 2021 VOID SOFTWARE, S.A.
+ *
+ */
+.ct-header {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: black;
+  color: white;
+  font-size: 14px;
+}
+
+.ct-header__day {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 30px;
+}
+
+.ct-header__hour-view-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  height: 30px;
+}
+
+.ct-header__hour-view-wrapper__hour {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 1px solid grey;
 }
 
 /**
@@ -30,11 +85,54 @@ body {
  *
  */
 .ct-sidebar {
+  display: inline-block;
   width: 200px;
 }
+
 .ct-sidebar .ct-sidebar-group-item {
-  padding: 10px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 30px;
   background-color: #F3F3F3;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+  border-left: 1px solid grey;
 }
 
+/**
+ *
+ * @Copyright 2021 VOID SOFTWARE, S.A.
+ *
+ */
+.ct-scroll {
+  display: inline-block;
+  background-color: darkslategray;
+}
+
+.ct-scroll__line {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.ct-scroll__column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid grey;
+  min-height: 30px;
+}
 /*# sourceMappingURL=main.css.map */
