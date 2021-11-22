@@ -12,10 +12,14 @@ import Content from './TimelineContent';
 
 interface OwnProps {
     groups: Array<Group>;
+    renderGroupItem?(group: Group): React.ReactNode;
 }
 
 const Timeline: FunctionComponent<OwnProps> = (props: OwnProps) => {
-    const { groups } = props;
+    const {
+        groups,
+        renderGroupItem,
+    } = props;
 
     const [sidebarWidth, setSidebarWidth] = useState(160);
 
@@ -33,6 +37,7 @@ const Timeline: FunctionComponent<OwnProps> = (props: OwnProps) => {
                 <Sidebar
                     groups={groups}
                     setSidebarWidth={width => setSidebarWidth(width)}
+                    renderGroupItem={renderGroupItem}
                 />
                 <Content
                     sidebarWidth={sidebarWidth}
