@@ -1,5 +1,4 @@
 # To do list
-- [x] #1
 - [ ] Have functions in props like renderGroupItem that receives parameters like groupId, that allows override render;
 - [ ] Receive props like intervalType (day, week, month) that is used to decide what to show;
 - [ ] Decide what date library to use or if we need to use one;
