@@ -7,3 +7,4 @@
 # Reminders:
 - Try to keep everything easy to customize;
 - This is going to be used initially for Void HR, but we need to keep this library independent, so it can be used later if needed;
+- When the events content gets too big it should have a vertical scroll, but the sidebar should stay fixed

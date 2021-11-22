@@ -11,10 +11,16 @@ interface OwnProps {
     groups: Array<Group>;
     groupsClass?: string;
     setSidebarWidth(width: number): void;
+    renderGroupItem?(group: Group): React.ReactNode;
 }
 
 const Sidebar: FunctionComponent<OwnProps> = (props: OwnProps) => {
-    const { groups, groupsClass, setSidebarWidth } = props;
+    const {
+        groups,
+        groupsClass,
+        setSidebarWidth,
+        renderGroupItem,
+    } = props;
 
     let sidebarRef = useRef<HTMLDivElement>(null);
 
@@ -27,6 +33,8 @@ const Sidebar: FunctionComponent<OwnProps> = (props: OwnProps) => {
     return (
         <div className="ct-sidebar" id="ct-sidebar" ref={sidebarRef}>
             {groups.map(group => {
+                if (renderGroupItem) return renderGroupItem(group);
+
                 return (
                     <div key={group.id} className={`ct-sidebar-group-item ${groupsClass || ''}`}>
                         {group.title}
