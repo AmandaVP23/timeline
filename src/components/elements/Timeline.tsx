@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent, useEffect, useState } from 'react';
 import Sidebar from '../Sidebar';
 import { Group, IntervalType } from '../../types/misc';
 import Header from './Header';
@@ -27,7 +27,16 @@ const Timeline: FunctionComponent<OwnProps> = (props: OwnProps) => {
     } = props;
 
     const [sidebarWidth, setSidebarWidth] = useState(160);
+    const [headerHeight, setHeaderHeight] = useState(60);
     const [headerItemWidth, setHeaderItemWidth] = useState(60);
+
+    useEffect(() => {
+        const headerEl = document.getElementById('ct-header-root');
+        if (headerEl) {
+            console.log("height", headerEl.offsetHeight);
+            setHeaderHeight(headerEl.offsetHeight);
+        }
+    }, [headerHeight, setHeaderHeight]);
 
     const headerData = calculateHeaderData(intervalType, startPeriod);
     let intervalsCounter = 0;
@@ -37,19 +46,25 @@ const Timeline: FunctionComponent<OwnProps> = (props: OwnProps) => {
 
     return (
         <div className="rt-wrapper">
-            <Header
-                sidebarWidth={sidebarWidth}
-                headerData={headerData}
-                setHeaderItemWidth={width => setHeaderItemWidth(width)}
+            <Sidebar
+                groups={groups}
+                setSidebarWidth={width => setSidebarWidth(width)}
+                renderGroupItem={renderGroupItem}
+                headerHeight={headerHeight}
             />
-            <div className="rt-outer">
-                <Sidebar
-                    groups={groups}
-                    setSidebarWidth={width => setSidebarWidth(width)}
-                    renderGroupItem={renderGroupItem}
+            <div
+                className="rt-container"
+                style={{
+                    marginLeft: `${sidebarWidth}px`,
+                    width: `calc(100% - ${sidebarWidth}px)`,
+                    maxWidth: `calc(100% - ${sidebarWidth}px)`,
+                }}
+            >
+                <Header
+                    headerData={headerData}
+                    setHeaderItemWidth={width => setHeaderItemWidth(width)}
                 />
                 <Content
-                    sidebarWidth={sidebarWidth}
                     groupsSize={groups.length}
                     columnsSize={intervalsCounter}
                     headerItemWidth={headerItemWidth}

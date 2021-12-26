@@ -12,6 +12,6 @@ export interface Group {
 export type IntervalType = 'day' | 'week' | 'month';
 
 export interface HeaderData {
-    label: string;
-    items: Array<string>;
+    headerDate: Date;
+    items: Array<Date>;
 }

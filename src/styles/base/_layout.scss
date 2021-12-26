@@ -5,9 +5,14 @@
  */
 
 .rt-wrapper {
-    
+    display: inline-flex;
+    width: 100%;
 }
 
 .rt-outer {
     display: flex;
+}
+
+.rt-container {
+    overflow: auto;
 }

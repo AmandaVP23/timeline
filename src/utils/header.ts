@@ -17,17 +17,18 @@ export const calculateHeaderData = (intervalType: IntervalType, startPeriod: Dat
 
     for (let i = 0; i <= daysDiff; i++) {
         const auxDate = new Date(new Date(startPeriod).setDate(startPeriod.getDate() + i));
-        const monthStr = getMonthLabel(startPeriod.getMonth());
-        const idx = headerData.findIndex(h => h.label === monthStr);
+        const monthStr = getMonthLabel(auxDate.getMonth());
+        const idx = headerData.findIndex(h => getMonthLabel(h.headerDate.getMonth()) === monthStr);
+
         if (idx < 0) {
             headerData.push({
-                label: monthStr,
-                items: [auxDate.getDate().toString()],
+                headerDate: new Date(auxDate.getFullYear(), auxDate.getMonth(), 1),
+                items: [new Date(auxDate)],// [auxDate.getDate().toString()],
             });
         } else {
             const newHeaderData = {
                 ...headerData[idx],
-                items: [...headerData[idx].items, auxDate.getDate().toString()],
+                items: [...headerData[idx].items, new Date(auxDate)],
             };
             headerData[idx] = { ...newHeaderData };
         }

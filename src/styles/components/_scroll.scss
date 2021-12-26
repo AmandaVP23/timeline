@@ -7,6 +7,7 @@
  .ct-scroll {
      display: inline-block;
      background-color: darkslategray;
+     overflow-x: auto;
 
      &__line{
         display: flex;
