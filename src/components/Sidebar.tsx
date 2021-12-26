@@ -12,6 +12,7 @@ interface OwnProps {
     groupsClass?: string;
     setSidebarWidth(width: number): void;
     renderGroupItem?(group: Group): React.ReactNode;
+    headerHeight: number;
 }
 
 const Sidebar: FunctionComponent<OwnProps> = (props: OwnProps) => {
@@ -20,6 +21,7 @@ const Sidebar: FunctionComponent<OwnProps> = (props: OwnProps) => {
         groupsClass,
         setSidebarWidth,
         renderGroupItem,
+        headerHeight,
     } = props;
 
     let sidebarRef = useRef<HTMLDivElement>(null);
@@ -31,7 +33,7 @@ const Sidebar: FunctionComponent<OwnProps> = (props: OwnProps) => {
     }, [sidebarRef, setSidebarWidth])
 
     return (
-        <div className="ct-sidebar" id="ct-sidebar" ref={sidebarRef}>
+        <div className="ct-sidebar" id="ct-sidebar" ref={sidebarRef} style={{ top: `${headerHeight}px` }}>
             {groups.map(group => {
                 if (renderGroupItem) return renderGroupItem(group);
 

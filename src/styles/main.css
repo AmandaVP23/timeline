@@ -21,8 +21,17 @@ body {
  * @Copyright 2021 VOID SOFTWARE, S.A.
  *
  */
+.rt-wrapper {
+  display: inline-flex;
+  width: 100%;
+}
+
 .rt-outer {
   display: flex;
+}
+
+.rt-container {
+  overflow: auto;
 }
 
 /**
@@ -32,15 +41,12 @@ body {
  */
 .ct-header {
   display: inline-flex;
-  flex-direction: column;
   justify-content: center;
   background-color: black;
   color: white;
   font-size: 14px;
-  width: 100%;
 }
 .ct-header__group {
-  width: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -50,6 +56,9 @@ body {
   justify-content: center;
   height: 30px;
   width: 100%;
+  border-top: 1px solid #BBBBBB;
+  border-right: 1px solid #BBBBBB;
+  border-left: 1px solid #BBBBBB;
 }
 .ct-header__group__bottom {
   display: inline-flex;
@@ -67,23 +76,6 @@ body {
   border-right: 1px solid #BBBBBB;
   border-left: 1px solid #BBBBBB;
 }
-.ct-header__day {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 30px;
-}
-.ct-header__hour-view-wrapper {
-  display: flex;
-  justify-content: space-around;
-  height: 30px;
-}
-.ct-header__hour-view-wrapper__hour {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid grey;
-}
 
 /**
  *
@@ -91,8 +83,11 @@ body {
  *
  */
 .ct-sidebar {
-  display: inline-block;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 200px;
+  z-index: 10;
 }
 .ct-sidebar .ct-sidebar-group-item {
   display: flex;
@@ -112,6 +107,7 @@ body {
 .ct-scroll {
   display: inline-block;
   background-color: darkslategray;
+  overflow-x: auto;
 }
 .ct-scroll__line {
   display: flex;

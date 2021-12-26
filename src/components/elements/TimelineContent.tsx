@@ -7,14 +7,13 @@
  import { FunctionComponent } from 'react';
  
 interface OwnProps {
-    sidebarWidth: number;
     groupsSize: number;
     columnsSize: number;
     headerItemWidth: number;
  }
  
 const Content: FunctionComponent<OwnProps> = (props: OwnProps) => {
-const { sidebarWidth, groupsSize, columnsSize, headerItemWidth } = props;
+const { groupsSize, columnsSize, headerItemWidth } = props;
 
 const renderColumns = () => {
     const columns = [];
@@ -39,7 +38,7 @@ const renderLinesAndColumns = () => {
 }
 return (
     <div className="ct-scroll" style={{
-        width: `calc(100% - ${sidebarWidth}px)`
+        //width: `calc(100% - ${sidebarWidth}px)`
     }}>
         { renderLinesAndColumns()}
     </div>

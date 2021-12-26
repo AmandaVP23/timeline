@@ -6,15 +6,15 @@
 
 import React, { FunctionComponent, useEffect, useRef } from 'react';
 import { HeaderData } from '../../types/misc';
+import { getMonthLabel } from '../../utils/dates';
 
 interface OwnProps {
-    sidebarWidth: number;
     headerData: Array<HeaderData>;
     setHeaderItemWidth(width: number): void;
 }
 
 const Header: FunctionComponent<OwnProps> = (props: OwnProps) => {
-    const { sidebarWidth, headerData, setHeaderItemWidth } = props;
+    const { headerData, setHeaderItemWidth } = props;
 
     let itemRef = useRef<HTMLDivElement>(null);
 
@@ -26,24 +26,25 @@ const Header: FunctionComponent<OwnProps> = (props: OwnProps) => {
     
     return (
         <div className="ct-header" style={{
-            marginLeft: `${sidebarWidth}px`,
-            width: `calc(100% - ${sidebarWidth}px)`
-        }}>
+            //marginLeft: `${sidebarWidth}px`,
+            // width: `calc(100% - ${sidebarWidth}px)`
+        }} id="ct-header-root">
             {headerData.map(header => {
+                const month = getMonthLabel(header.headerDate.getMonth());
                 return (
-                    <div key={header.label} className="ct-header__group">
+                    <div key={month} className="ct-header__group">
                         <div className="ct-header__group__top">
-                            {header.label}
+                            {month}
                         </div>
                         <div className="ct-header__group__bottom">
                             {header.items.map(interval => {
                                 return (
                                     <div
-                                        key={interval}
+                                        key={`${month}-${interval}`}
                                         ref={itemRef}
                                         className="ct-header__group__bottom__item"
                                     >
-                                        {interval}
+                                        {interval.getDate()}
                                     </div>
                                 )
                             })}

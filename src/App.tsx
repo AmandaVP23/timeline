@@ -20,7 +20,7 @@ function App() {
         <Timeline
             groups={groups}
             intervalType="day"
-            startPeriod={new Date(2021, 11, 20)}
+            startPeriod={new Date(2021, 10, 20)}
         />
     );
 }
