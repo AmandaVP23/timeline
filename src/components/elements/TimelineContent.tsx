@@ -9,17 +9,18 @@
 interface OwnProps {
     sidebarWidth: number;
     groupsSize: number;
-    columnsSize: number
+    columnsSize: number;
+    headerItemWidth: number;
  }
  
 const Content: FunctionComponent<OwnProps> = (props: OwnProps) => {
-const {sidebarWidth, groupsSize, columnsSize} = props;
+const { sidebarWidth, groupsSize, columnsSize, headerItemWidth } = props;
 
 const renderColumns = () => {
     const columns = [];
     for (let index = 0; index < columnsSize; index++) {
         columns.push(
-            <div key={`col-${index}`} className="ct-scroll__column" style={{ width: `${100 / columnsSize}%` }} />
+            <div key={`col-${index}`} className="ct-scroll__column" style={{ width: `${headerItemWidth}px` }} />
         );
     }
     return columns;
@@ -29,9 +30,9 @@ const renderLinesAndColumns = () => {
     const lines = [];
     for (let index = 0; index < groupsSize; index++) {
         lines.push(
-                <div className="ct-scroll__line" key={`line-${index}`}>
-                    { renderColumns() }
-                </div>
+            <div className="ct-scroll__line" key={`line-${index}`}>
+                { renderColumns() }
+            </div>
         );
     }
     return lines;
