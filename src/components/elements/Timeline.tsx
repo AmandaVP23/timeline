@@ -6,32 +6,41 @@
 
 import React, { FunctionComponent, useState } from 'react';
 import Sidebar from '../Sidebar';
-import { Group } from '../../types/misc';
+import { Group, IntervalType } from '../../types/misc';
 import Header from './Header';
 import Content from './TimelineContent';
+import { calculateHeaderData } from '../../utils/header';
 
 interface OwnProps {
     groups: Array<Group>;
     renderGroupItem?(group: Group): React.ReactNode;
+    intervalType: IntervalType;
+    startPeriod: Date;
 }
 
 const Timeline: FunctionComponent<OwnProps> = (props: OwnProps) => {
     const {
         groups,
         renderGroupItem,
+        intervalType,
+        startPeriod,
     } = props;
 
     const [sidebarWidth, setSidebarWidth] = useState(160);
+    const [headerItemWidth, setHeaderItemWidth] = useState(60);
 
-    const today = new Date();
-    const dayHours = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00'] 
+    const headerData = calculateHeaderData(intervalType, startPeriod);
+    let intervalsCounter = 0;
+    Object.values(headerData).forEach(header => {
+        intervalsCounter += header.items.length;
+    });
 
     return (
         <div className="rt-wrapper">
             <Header
                 sidebarWidth={sidebarWidth}
-                labelFormat={today.toLocaleDateString()}
-                headerData={dayHours}
+                headerData={headerData}
+                setHeaderItemWidth={width => setHeaderItemWidth(width)}
             />
             <div className="rt-outer">
                 <Sidebar
@@ -42,7 +51,8 @@ const Timeline: FunctionComponent<OwnProps> = (props: OwnProps) => {
                 <Content
                     sidebarWidth={sidebarWidth}
                     groupsSize={groups.length}
-                    columnsSize={dayHours.length}
+                    columnsSize={intervalsCounter}
+                    headerItemWidth={headerItemWidth}
                 />
             </div>
         </div>

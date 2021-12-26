@@ -19,6 +19,8 @@ function App() {
     return (
         <Timeline
             groups={groups}
+            intervalType="day"
+            startPeriod={new Date(2021, 11, 20)}
         />
     );
 }
