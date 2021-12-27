@@ -4,21 +4,36 @@
  *
  */
 
- .ct-scroll {
-     display: inline-block;
-     background-color: darkslategray;
-     overflow-x: auto;
+.ct-scroll {
+    display: inline-block;
+    background-color: darkslategray;
+    overflow-x: auto;
 
-     &__line{
+    &__line {
         display: flex;
         flex-direction: row;
-     }
+        position: relative;
 
-     &__column {
+        .ct-event {
+            //height: 10px;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 100px;
+            background-color: yellow;
+            border-radius: 2px;
+            border: 1px solid #000;
+            max-height: 100%;
+            z-index: 10;
+        }
+    }
+
+    &__column {
         display: flex;
         //justify-content: space-around;
         align-items: center;
         border: 1px solid grey;
         min-height: 30px;
-     }
- }
+    }
+}

@@ -6,16 +6,18 @@
 
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import Sidebar from '../Sidebar';
-import { Group, IntervalType } from '../../types/misc';
+import { EventItem, Group, IntervalType } from '../../types/misc';
 import Header from './Header';
 import Content from './TimelineContent';
 import { calculateHeaderData } from '../../utils/header';
+import { populateEventsWidth } from '../../utils/eventItems';
 
 interface OwnProps {
     groups: Array<Group>;
     renderGroupItem?(group: Group): React.ReactNode;
     intervalType: IntervalType;
     startPeriod: Date;
+    events: Array<EventItem>;
 }
 
 const Timeline: FunctionComponent<OwnProps> = (props: OwnProps) => {
@@ -24,6 +26,7 @@ const Timeline: FunctionComponent<OwnProps> = (props: OwnProps) => {
         renderGroupItem,
         intervalType,
         startPeriod,
+        events,
     } = props;
 
     const [sidebarWidth, setSidebarWidth] = useState(160);
@@ -33,7 +36,6 @@ const Timeline: FunctionComponent<OwnProps> = (props: OwnProps) => {
     useEffect(() => {
         const headerEl = document.getElementById('ct-header-root');
         if (headerEl) {
-            console.log("height", headerEl.offsetHeight);
             setHeaderHeight(headerEl.offsetHeight);
         }
     }, [headerHeight, setHeaderHeight]);
@@ -43,6 +45,8 @@ const Timeline: FunctionComponent<OwnProps> = (props: OwnProps) => {
     Object.values(headerData).forEach(header => {
         intervalsCounter += header.items.length;
     });
+
+    const eventsWithWidth = populateEventsWidth(headerData, events, headerItemWidth);
 
     return (
         <div className="rt-wrapper">
@@ -65,9 +69,10 @@ const Timeline: FunctionComponent<OwnProps> = (props: OwnProps) => {
                     setHeaderItemWidth={width => setHeaderItemWidth(width)}
                 />
                 <Content
-                    groupsSize={groups.length}
+                    groups={groups}
                     columnsSize={intervalsCounter}
                     headerItemWidth={headerItemWidth}
+                    events={eventsWithWidth}
                 />
             </div>
         </div>

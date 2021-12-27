@@ -112,6 +112,19 @@ body {
 .ct-scroll__line {
   display: flex;
   flex-direction: row;
+  position: relative;
+}
+.ct-scroll__line .ct-event {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100px;
+  background-color: yellow;
+  border-radius: 2px;
+  border: 1px solid #000;
+  max-height: 100%;
+  z-index: 10;
 }
 .ct-scroll__column {
   display: flex;
