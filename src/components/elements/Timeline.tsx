@@ -8,7 +8,7 @@ import React, { FunctionComponent, useEffect, useState } from 'react';
 import Sidebar from '../Sidebar';
 import { EventItem, Group, IntervalType } from '../../types/misc';
 import Header from './Header';
-import Content from './TimelineContent';
+import TimelineContent from './TimelineContent';
 import { calculateHeaderData } from '../../utils/header';
 import { populateEventsWidth } from '../../utils/eventItems';
 
@@ -68,7 +68,7 @@ const Timeline: FunctionComponent<OwnProps> = (props: OwnProps) => {
                     headerData={headerData}
                     setHeaderItemWidth={width => setHeaderItemWidth(width)}
                 />
-                <Content
+                <TimelineContent
                     groups={groups}
                     columnsSize={intervalsCounter}
                     headerItemWidth={headerItemWidth}

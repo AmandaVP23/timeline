@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0e0af618-b5dd-47aa-b10b-36ae4fa66695" name="Changes" comment="changed layout&#10;changed header data to have Date instead of string">
-      <change afterPath="$PROJECT_DIR$/src/utils/eventItems.ts" afterDir="false" />
+    <list default="true" id="0e0af618-b5dd-47aa-b10b-36ae4fa66695" name="Changes" comment="Render events">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sidebar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/elements/Timeline.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/Timeline.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/elements/TimelineContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/TimelineContent.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/components/_scroll.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/components/_scroll.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/main.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/misc.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/misc.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +122,8 @@
       <workItem from="1639668276740" duration="33000" />
       <workItem from="1640515286947" duration="13620000" />
       <workItem from="1640552079508" duration="4895000" />
-      <workItem from="1640617646813" duration="9482000" />
+      <workItem from="1640617646813" duration="9824000" />
+      <workItem from="1640638185647" duration="3399000" />
     </task>
     <task id="LOCAL-00001" summary="Changed readme to include todo list and reminders">
       <created>1637602203636</created>
@@ -160,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640557093828</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Render events">
+      <created>1640629873573</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1640629873573</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,7 +191,8 @@
     <MESSAGE value="edit readme" />
     <MESSAGE value="Can render header with day interval (not implemented the others yet)&#10;Added intervalType and startPeriod to props&#10;Already gets width of header item to render content columns correctly" />
     <MESSAGE value="changed layout&#10;changed header data to have Date instead of string" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed layout&#10;changed header data to have Date instead of string" />
+    <MESSAGE value="Render events" />
+    <option name="LAST_COMMIT_MESSAGE" value="Render events" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

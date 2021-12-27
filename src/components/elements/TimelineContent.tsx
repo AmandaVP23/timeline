@@ -14,7 +14,7 @@ interface OwnProps {
     events: Array<EventItem>;
 }
 
-const Content: FunctionComponent<OwnProps> = (props: OwnProps) => {
+const TimelineContent: FunctionComponent<OwnProps> = (props: OwnProps) => {
     const { groups, columnsSize, headerItemWidth, events } = props;
 
     const renderColumns = () => {
@@ -33,7 +33,9 @@ const Content: FunctionComponent<OwnProps> = (props: OwnProps) => {
             lines.push(
                 <div className="ct-scroll__line" key={`line-${index}`} data-line-groupid={groups[index].id}>
                     { renderColumns() }
-                    { renderEvents(groups[index].id) }
+                    <div className="ct-scroll__line__events" data-events-wrapper={groups[index].id}>
+                        { renderEvents(groups[index].id) }
+                    </div>
                 </div>
             );
         }
@@ -43,18 +45,29 @@ const Content: FunctionComponent<OwnProps> = (props: OwnProps) => {
     const renderEvents = (groupId: number | string) => {
         const groupEvents = events.filter(e => e.groupId === groupId);
         const eventsEl = [];
+
         for (let index = 0; index < groupEvents.length; index++) {
             eventsEl.push(
                 <div
                     className="ct-event"
                     style={{
                         width: `${groupEvents[index].width}px`,
-                        left: `${groupEvents[index].left}px`,
+                        marginLeft: `${groupEvents[index].left}px`,
                     }}
                 >
                     {groupEvents[index].title}
                 </div>
             )
+        }
+
+        if (eventsEl.length > 1) {
+            const eventsWrapperEl: HTMLDivElement = document.querySelector(`[data-events-wrapper="${groupId}"]`) as HTMLDivElement;
+            const lineEl: HTMLDivElement = document.querySelector(`[data-line-groupid="${groupId}"]`) as HTMLDivElement;
+            const groupSidebarEl: HTMLDivElement = document.querySelector(`[data-sidebar-item="${groupId}"]`) as HTMLDivElement;
+            if (eventsWrapperEl && lineEl) {
+                lineEl.style.height = `${eventsWrapperEl.offsetHeight}px`;
+                groupSidebarEl.style.height = `${eventsWrapperEl.offsetHeight}px`;
+            }
         }
         return eventsEl;
     }
@@ -68,4 +81,4 @@ const Content: FunctionComponent<OwnProps> = (props: OwnProps) => {
     );
 }
 
-export default Content;
+export default TimelineContent;
