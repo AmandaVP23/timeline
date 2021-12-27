@@ -14,18 +14,26 @@
         flex-direction: row;
         position: relative;
 
-        .ct-event {
-            //height: 10px;
+        &__events {
             position: absolute;
+            transform: translateY(-50%);
             top: 50%;
             left: 0;
-            transform: translateY(-50%);
-            width: 100px;
-            background-color: yellow;
-            border-radius: 2px;
-            border: 1px solid #000;
-            max-height: 100%;
-            z-index: 10;
+            padding: 5px 0;
+
+            .ct-event {
+                //height: 10px;
+                //position: absolute;
+                //top: 50%;
+                //left: 0;
+                //transform: translateY(-50%);
+                width: 100px;
+                background-color: yellow;
+                border-radius: 2px;
+                border: 1px solid #000;
+                max-height: 100%;
+                z-index: 10;
+            }
         }
     }
 

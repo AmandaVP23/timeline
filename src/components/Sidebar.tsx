@@ -38,7 +38,7 @@ const Sidebar: FunctionComponent<OwnProps> = (props: OwnProps) => {
                 if (renderGroupItem) return renderGroupItem(group);
 
                 return (
-                    <div key={group.id} className={`ct-sidebar-group-item ${groupsClass || ''}`}>
+                    <div key={group.id} className={`ct-sidebar-group-item ${groupsClass || ''}`} data-sidebar-item={group.id}>
                         {group.title}
                     </div>
                 );

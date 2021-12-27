@@ -114,11 +114,14 @@ body {
   flex-direction: row;
   position: relative;
 }
-.ct-scroll__line .ct-event {
+.ct-scroll__line__events {
   position: absolute;
+  transform: translateY(-50%);
   top: 50%;
   left: 0;
-  transform: translateY(-50%);
+  padding: 5px 0;
+}
+.ct-scroll__line__events .ct-event {
   width: 100px;
   background-color: yellow;
   border-radius: 2px;

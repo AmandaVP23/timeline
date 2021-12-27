@@ -17,7 +17,8 @@ const groups: Array<Group> = [
 
 const events: Array<EventItem> = [
     { id: 1, groupId: 1, title: 'Event 1', startPeriod: new Date(2021, 10, 23), endPeriod: new Date(2021, 10, 25) },
-    { id: 1, groupId: 2, title: 'Event 2', startPeriod: new Date(2021, 10, 27), endPeriod: new Date(2021, 11, 12) },
+    { id: 2, groupId: 1, title: 'Event 2', startPeriod: new Date(2021, 10, 24), endPeriod: new Date(2021, 11, 1) },
+    { id: 3, groupId: 3, title: 'Event 3', startPeriod: new Date(2021, 10, 25), endPeriod: new Date(2021, 11, 3) },
 ];
 
 function App() {
