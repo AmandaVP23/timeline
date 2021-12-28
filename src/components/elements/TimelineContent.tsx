@@ -12,10 +12,13 @@ interface OwnProps {
     columnsSize: number;
     headerItemWidth: number;
     events: Array<EventItem>;
+    eventRenderer?(eventItem: EventItem, style: any): JSX.Element;
 }
 
 const TimelineContent: FunctionComponent<OwnProps> = (props: OwnProps) => {
-    const { groups, columnsSize, headerItemWidth, events } = props;
+    const {
+        groups, columnsSize, headerItemWidth, events, eventRenderer,
+    } = props;
 
     const renderColumns = () => {
         const columns = [];
@@ -47,17 +50,25 @@ const TimelineContent: FunctionComponent<OwnProps> = (props: OwnProps) => {
         const eventsEl = [];
 
         for (let index = 0; index < groupEvents.length; index++) {
-            eventsEl.push(
-                <div
-                    className="ct-event"
-                    style={{
-                        width: `${groupEvents[index].width}px`,
-                        marginLeft: `${groupEvents[index].left}px`,
-                    }}
-                >
-                    {groupEvents[index].title}
-                </div>
-            )
+            const style = {
+                width: `${groupEvents[index].width}px`,
+                marginLeft: `${groupEvents[index].left}px`,
+            };
+            if (eventRenderer) {
+                eventsEl.push(eventRenderer(groupEvents[index], style));
+            } else {
+                eventsEl.push(
+                    <div
+                        className="ct-event"
+                        style={{
+                            ...style,
+                            backgroundColor: groupEvents[index].backgroundColor,
+                        }}
+                    >
+                        {groupEvents[index].title}
+                    </div>
+                )
+            }
         }
 
         if (eventsEl.length > 1) {

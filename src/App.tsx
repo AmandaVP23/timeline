@@ -15,11 +15,31 @@ const groups: Array<Group> = [
     { id: 4, title: 'Lucas' },
 ];
 
-const events: Array<EventItem> = [
-    { id: 1, groupId: 1, title: 'Event 1', startPeriod: new Date(2021, 10, 23), endPeriod: new Date(2021, 10, 25) },
-    { id: 2, groupId: 1, title: 'Event 2', startPeriod: new Date(2021, 10, 24), endPeriod: new Date(2021, 11, 1) },
-    { id: 3, groupId: 3, title: 'Event 3', startPeriod: new Date(2021, 10, 25), endPeriod: new Date(2021, 11, 3) },
-];
+const events: Array<EventItem> = [{
+    id: 1, groupId: 1,
+    title: 'Event 1',
+    startPeriod: new Date(2021, 10, 23),
+    endPeriod: new Date(2021, 10, 25),
+}, {
+    id: 2,
+    groupId: 1,
+    title: 'Event 2',
+    startPeriod: new Date(2021, 10, 24),
+    endPeriod: new Date(2021, 11, 1)
+}, {
+    id: 3,
+    groupId: 3,
+    title: 'Event 3',
+    startPeriod: new Date(2021, 10, 25),
+    endPeriod: new Date(2021, 11, 3),
+    backgroundColor: '#FF1122',
+}];
+
+const eventRenderer = (eventItem: EventItem, style: any) => {
+    return <div className="ct-event" style={{ ...style, backgroundColor: '#123123' }}>
+        {eventItem.title}
+    </div>
+}
 
 function App() {
     return (
@@ -28,6 +48,7 @@ function App() {
             intervalType="day"
             startPeriod={new Date(2021, 10, 20)}
             events={events}
+            //eventRenderer={eventRenderer}
         />
     );
 }
