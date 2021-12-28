@@ -25,4 +25,5 @@ export interface EventItem {
     endPeriod: Date;
     width?: number; // todo - isto é apenas para uso interno - talvez ter outra variavel
     left?: number;
+    backgroundColor?: string;
 }

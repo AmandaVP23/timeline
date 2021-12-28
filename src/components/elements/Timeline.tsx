@@ -18,6 +18,7 @@ interface OwnProps {
     intervalType: IntervalType;
     startPeriod: Date;
     events: Array<EventItem>;
+    eventRenderer?(eventItem: EventItem, style: any): JSX.Element;
 }
 
 const Timeline: FunctionComponent<OwnProps> = (props: OwnProps) => {
@@ -27,6 +28,7 @@ const Timeline: FunctionComponent<OwnProps> = (props: OwnProps) => {
         intervalType,
         startPeriod,
         events,
+        eventRenderer,
     } = props;
 
     const [sidebarWidth, setSidebarWidth] = useState(160);
@@ -73,6 +75,7 @@ const Timeline: FunctionComponent<OwnProps> = (props: OwnProps) => {
                     columnsSize={intervalsCounter}
                     headerItemWidth={headerItemWidth}
                     events={eventsWithWidth}
+                    eventRenderer={eventRenderer}
                 />
             </div>
         </div>
