@@ -18,6 +18,8 @@ body {
  *
  */
 .rt-outer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -27,28 +29,53 @@ body {
  *
  */
 .ct-header {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background-color: black;
   color: white;
   font-size: 14px;
 }
+
 .ct-header__day {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: 30px;
 }
+
 .ct-header__hour-view-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   height: 30px;
 }
+
 .ct-header__hour-view-wrapper__hour {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   border: 1px solid grey;
 }
 
@@ -61,9 +88,14 @@ body {
   display: inline-block;
   width: 200px;
 }
+
 .ct-sidebar .ct-sidebar-group-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 30px;
   background-color: #F3F3F3;
   border-top: 1px solid grey;
@@ -80,16 +112,27 @@ body {
   display: inline-block;
   background-color: darkslategray;
 }
+
 .ct-scroll__line {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
+
 .ct-scroll__column {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border: 1px solid grey;
   min-height: 30px;
 }
-
 /*# sourceMappingURL=main.css.map */

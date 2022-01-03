@@ -10,12 +10,11 @@ interface OwnProps {
     sidebarWidth: number;
     labelFormat: string;
     headerData: Array<string>;
-
+    colWidth: number;
 }
 
 const Header: FunctionComponent<OwnProps> = (props: OwnProps) => {
-    const { sidebarWidth, labelFormat, headerData } = props;
-    
+    const { sidebarWidth, labelFormat, headerData, colWidth } = props;
     return (
         <div className="ct-header" style={
             {
@@ -29,7 +28,7 @@ const Header: FunctionComponent<OwnProps> = (props: OwnProps) => {
             <div className="ct-header__hour-view-wrapper">
                 {
                 headerData.map(hour => {
-                    return <div key={hour} className="ct-header__hour-view-wrapper__hour" style={{ width: `${100 / headerData.length}%` }}> {hour} </div>;
+                    return <div key={hour} className="ct-header__hour-view-wrapper__hour" style={{ width: `${colWidth}%` }}> {hour} </div>;
                 })
             }
             </div>
