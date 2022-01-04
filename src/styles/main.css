@@ -92,7 +92,7 @@ body {
 .ct-sidebar .ct-sidebar-group-item {
   display: flex;
   align-items: center;
-  height: 30px;
+  height: 45px;
   background-color: #F3F3F3;
   border-top: 1px solid grey;
   border-bottom: 1px solid grey;
@@ -110,33 +110,18 @@ body {
   overflow-x: auto;
 }
 .ct-scroll__line {
-  display: flex;
-  flex-direction: row;
-  position: relative;
+  display: grid;
+  padding: 2px 0;
 }
-.ct-scroll__line__events {
-  position: absolute;
-  top: 5px;
-  left: 0;
-  padding: 5px 0;
-}
-.ct-scroll__line__events .ct-event {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100px;
+.ct-scroll__line .ct-event {
   background-color: yellow;
   border-radius: 2px;
   border: 1px solid #000;
-  min-height: 20px;
-  max-height: 100%;
-  z-index: 10;
-}
-.ct-scroll__column {
-  display: flex;
+  text-align: center;
+  align-content: center;
+  display: inline-flex;
   align-items: center;
-  border: 1px solid grey;
-  min-height: 30px;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=main.css.map */
