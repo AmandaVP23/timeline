@@ -42,18 +42,19 @@ const events: Array<EventItem> = [{
     backgroundColor: '#FF1122',
 }];
 
-const eventRenderer = (eventItem: EventItem, style: any) => {
-    return <div className="ct-event" style={{ ...style, backgroundColor: '#123123' }}>
-        {eventItem.title}
-    </div>
-}
+// const eventRenderer = (eventItem: EventItem, style: any) => {
+//     return <div className="ct-event" style={{ ...style, backgroundColor: '#123123' }}>
+//         {eventItem.title}
+//     </div>
+// }
 
 function App() {
     return (
         <Timeline
             groups={groups}
-            intervalType="day"
-            startPeriod={new Date(2021, 10, 20)}
+            intervalType="month"
+            startPeriod={new Date(2021, 10, 10)}
+            endPeriod={new Date(2021, 11, 20)}
             events={events}
             //eventRenderer={eventRenderer}
         />

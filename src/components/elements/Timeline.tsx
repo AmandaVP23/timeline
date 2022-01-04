@@ -17,6 +17,7 @@ interface OwnProps {
     renderGroupItem?(group: Group): React.ReactNode;
     intervalType: IntervalType;
     startPeriod: Date;
+    endPeriod?: Date;
     events: Array<EventItem>;
     eventRenderer?(eventItem: EventItem, style: any): JSX.Element;
 }
@@ -29,6 +30,7 @@ const Timeline: FunctionComponent<OwnProps> = (props: OwnProps) => {
         startPeriod,
         events,
         eventRenderer,
+        endPeriod,
     } = props;
 
     const [sidebarWidth, setSidebarWidth] = useState(160);
@@ -42,7 +44,7 @@ const Timeline: FunctionComponent<OwnProps> = (props: OwnProps) => {
         }
     }, [headerHeight, setHeaderHeight]);
 
-    const headerData = calculateHeaderData(intervalType, startPeriod);
+    const headerData = calculateHeaderData(intervalType, startPeriod, endPeriod);
     let intervalsCounter = 0;
     Object.values(headerData).forEach(header => {
         intervalsCounter += header.items.length;
@@ -61,9 +63,9 @@ const Timeline: FunctionComponent<OwnProps> = (props: OwnProps) => {
             <div
                 className="rt-container"
                 style={{
-                    marginLeft: `${sidebarWidth}px`,
-                    width: `calc(100% - ${sidebarWidth}px)`,
-                    maxWidth: `calc(100% - ${sidebarWidth}px)`,
+                    //marginLeft: `${sidebarWidth}px`,
+                    //width: `calc(100% - ${sidebarWidth}px)`,
+                    //maxWidth: `calc(100% - ${sidebarWidth}px)`,
                 }}
             >
                 <Header

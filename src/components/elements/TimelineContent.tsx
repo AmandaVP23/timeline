@@ -29,8 +29,6 @@ const TimelineContent: FunctionComponent<OwnProps> = (props: OwnProps) => {
     } = props;
 
     const renderEvents = (events: Array<EventItem>) => {
-        // todo - event renderer
-
         return events.map((event: EventItem, idx: number) => {
             // @ts-ignore
             const columnStart = (event.left / headerItemWidth) - 1;
