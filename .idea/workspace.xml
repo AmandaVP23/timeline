@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0e0af618-b5dd-47aa-b10b-36ae4fa66695" name="Changes" comment="Render multiple events oin same line">
+    <list default="true" id="0e0af618-b5dd-47aa-b10b-36ae4fa66695" name="Changes" comment="testing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/elements/Timeline.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/Timeline.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/elements/TimelineContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/TimelineContent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/misc.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/misc.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/components/_scroll.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/components/_scroll.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/components/_sidebar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/components/_sidebar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/main.css.map" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +18,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="test/test-different-layout" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -39,7 +41,7 @@
                 <list>
                   <RecentBranch>
                     <option name="branchName" value="feature/render-event" />
-                    <option name="lastUsedInstant" value="1640713733" />
+                    <option name="lastUsedInstant" value="1641320847" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="test/test-different-layout" />
@@ -79,7 +81,7 @@
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
@@ -122,6 +124,7 @@
       <workItem from="1640617646813" duration="9824000" />
       <workItem from="1640638185647" duration="3450000" />
       <workItem from="1640685157224" duration="3935000" />
+      <workItem from="1641316727202" duration="8838000" />
     </task>
     <task id="LOCAL-00001" summary="Changed readme to include todo list and reminders">
       <created>1637602203636</created>
@@ -172,7 +175,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640642514816</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="testing">
+      <created>1641325502233</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1641325502233</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,7 +208,8 @@
     <MESSAGE value="changed layout&#10;changed header data to have Date instead of string" />
     <MESSAGE value="Render events" />
     <MESSAGE value="Render multiple events oin same line" />
-    <option name="LAST_COMMIT_MESSAGE" value="Render multiple events oin same line" />
+    <MESSAGE value="testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="testing" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

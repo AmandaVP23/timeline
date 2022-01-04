@@ -33,6 +33,13 @@ const events: Array<EventItem> = [{
     startPeriod: new Date(2021, 10, 25),
     endPeriod: new Date(2021, 11, 3),
     backgroundColor: '#FF1122',
+}, {
+    id: 4,
+    groupId: 3,
+    title: 'Event 3',
+    startPeriod: new Date(2021, 11, 5),
+    endPeriod: new Date(2021, 11, 7),
+    backgroundColor: '#FF1122',
 }];
 
 const eventRenderer = (eventItem: EventItem, style: any) => {
