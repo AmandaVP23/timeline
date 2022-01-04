@@ -46,8 +46,8 @@ const TimelineContent: FunctionComponent<OwnProps> = (props: OwnProps) => {
                 width: `${event.width}px`,
                 marginLeft: `${event.left}px`,
                 gridColumn: columnStart / columnEnd,
-                backgroundColor: event.backgroundColor,
                 gridRow: overlapPreviousEvent ? '2 / 3' : '1 / 2',
+                backgroundColor: event.backgroundColor,
             };
 
             if (eventRenderer) return eventRenderer(event, style);
@@ -84,7 +84,8 @@ const TimelineContent: FunctionComponent<OwnProps> = (props: OwnProps) => {
                             minHeight: `${minHeight}px`,
                         }}
                     >
-                        {renderEvents(groupEvents)}
+                        {/*{renderEvents(groupEvents)}*/}
+                        here
                     </div>
                 );
             })}

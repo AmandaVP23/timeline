@@ -23,12 +23,10 @@ const Header: FunctionComponent<OwnProps> = (props: OwnProps) => {
             setHeaderItemWidth(itemRef.current.offsetWidth);
         }
     }, [itemRef, setHeaderItemWidth])
+
     
     return (
-        <div className="ct-header" style={{
-            //marginLeft: `${sidebarWidth}px`,
-            // width: `calc(100% - ${sidebarWidth}px)`
-        }} id="ct-header-root">
+        <div className="ct-header" id="ct-header-root">
             {headerData.map(header => {
                 const month = getMonthLabel(header.headerDate.getMonth());
                 return (

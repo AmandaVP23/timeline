@@ -16,4 +16,11 @@
 .rt-container {
     overflow: auto;
     scroll-behavior: smooth;
+    display: grid;
+    grid-template-rows: auto;
+
+    .ct-header-top {
+        grid-row: 1 / 2;
+        padding: 5px 0;
+    }
 }

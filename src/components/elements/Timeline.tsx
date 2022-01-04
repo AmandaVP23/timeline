@@ -52,6 +52,9 @@ const Timeline: FunctionComponent<OwnProps> = (props: OwnProps) => {
 
     const eventsWithWidth = populateEventsWidth(headerData, events, headerItemWidth);
 
+    let previousCol = 0;
+    let itemPreviousCol = 0;
+
     return (
         <div className="rt-wrapper">
             <Sidebar
@@ -63,15 +66,64 @@ const Timeline: FunctionComponent<OwnProps> = (props: OwnProps) => {
             <div
                 className="rt-container"
                 style={{
+                    gridTemplateColumns: `repeat(${intervalsCounter}, auto-fit)`,
                     //marginLeft: `${sidebarWidth}px`,
                     //width: `calc(100% - ${sidebarWidth}px)`,
                     //maxWidth: `calc(100% - ${sidebarWidth}px)`,
                 }}
             >
-                <Header
-                    headerData={headerData}
-                    setHeaderItemWidth={width => setHeaderItemWidth(width)}
-                />
+                {headerData.map((h, idx) => {
+                    const startCol = previousCol + 1;
+                    const endCol = startCol + h.items.length;
+                    previousCol = endCol;
+
+                    console.log("start", startCol, "end", endCol, "previos", previousCol);
+
+                    return (
+                        <div
+                            key={idx}
+                            className="ct-header-top"
+                            style={{
+                                //gridColumn: startCol / endCol,
+                                gridColumnStart: startCol,
+                                gridColumnEnd: endCol,
+                                //gridColumn: idx === 1 ? 5 / 9 : 1 / 4,
+                                //gridRow: 1 / 2,
+                                //backgroundColor: '#121212',
+                            }}
+                        >
+                            header 1
+                        </div>
+                    )
+                })}
+                {headerData.map((h, lineIdx) => {
+
+                    return h.items.map((i, itemIdx) => {
+                        const startCol = itemPreviousCol + 1;
+                        //const endCol = startCol + 1;
+                        itemPreviousCol = startCol + 1;
+
+                        console.log("-----");
+                        console.log("start", startCol, "end",startCol + 1,  "previos", itemPreviousCol);
+
+                        return (
+                            <div key={itemIdx}
+                                 style={{
+                                     gridColumnStart: startCol,
+                                     gridColumnEnd: startCol + 1,
+                                     gridRow: 3 / 4,
+                                     minWidth: '40px',
+                                 }}
+                            >
+                                i
+                            </div>
+                        )
+                    })
+                })}
+                {/*<Header*/}
+                {/*    headerData={headerData}*/}
+                {/*    setHeaderItemWidth={width => setHeaderItemWidth(width)}*/}
+                {/*/>*/}
                 <TimelineContent
                     groups={groups}
                     columnsSize={intervalsCounter}
