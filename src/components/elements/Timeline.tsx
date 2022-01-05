@@ -67,9 +67,7 @@ const Timeline: FunctionComponent<OwnProps> = (props: OwnProps) => {
                 className="rt-container"
                 style={{
                     gridTemplateColumns: `repeat(${intervalsCounter}, auto-fit)`,
-                    //marginLeft: `${sidebarWidth}px`,
-                    //width: `calc(100% - ${sidebarWidth}px)`,
-                    //maxWidth: `calc(100% - ${sidebarWidth}px)`,
+                    gridTemplateRows: `repeat(${groups.length + 2}, auto-fill)`,
                 }}
             >
                 {headerData.map((h, idx) => {
@@ -84,12 +82,8 @@ const Timeline: FunctionComponent<OwnProps> = (props: OwnProps) => {
                             key={idx}
                             className="ct-header-top"
                             style={{
-                                //gridColumn: startCol / endCol,
                                 gridColumnStart: startCol,
                                 gridColumnEnd: endCol,
-                                //gridColumn: idx === 1 ? 5 / 9 : 1 / 4,
-                                //gridRow: 1 / 2,
-                                //backgroundColor: '#121212',
                             }}
                         >
                             header 1
@@ -97,7 +91,6 @@ const Timeline: FunctionComponent<OwnProps> = (props: OwnProps) => {
                     )
                 })}
                 {headerData.map((h, lineIdx) => {
-
                     return h.items.map((i, itemIdx) => {
                         const startCol = itemPreviousCol + 1;
                         //const endCol = startCol + 1;
@@ -120,17 +113,31 @@ const Timeline: FunctionComponent<OwnProps> = (props: OwnProps) => {
                         )
                     })
                 })}
+                {groups.map(group => {
+                    const items = [];
+                    for (let i = 1; i <= intervalsCounter; i++) {
+                        items.push(<div
+                            key={i}
+                        >
+                            g
+                        </div>);
+                    }
+
+                    return items;
+                })}
+
+
                 {/*<Header*/}
                 {/*    headerData={headerData}*/}
                 {/*    setHeaderItemWidth={width => setHeaderItemWidth(width)}*/}
                 {/*/>*/}
-                <TimelineContent
-                    groups={groups}
-                    columnsSize={intervalsCounter}
-                    headerItemWidth={headerItemWidth}
-                    events={eventsWithWidth}
-                    eventRenderer={eventRenderer}
-                />
+                {/*<TimelineContent*/}
+                {/*    groups={groups}*/}
+                {/*    columnsSize={intervalsCounter}*/}
+                {/*    headerItemWidth={headerItemWidth}*/}
+                {/*    events={eventsWithWidth}*/}
+                {/*    eventRenderer={eventRenderer}*/}
+                {/*/>*/}
             </div>
         </div>
     );

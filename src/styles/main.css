@@ -34,7 +34,6 @@ body {
   overflow: auto;
   scroll-behavior: smooth;
   display: grid;
-  grid-template-rows: auto;
 }
 .rt-container .ct-header-top {
   grid-row: 1/2;

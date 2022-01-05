@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0e0af618-b5dd-47aa-b10b-36ae4fa66695" name="Changes" comment="Do not need sidebar width anymore">
+    <list default="true" id="0e0af618-b5dd-47aa-b10b-36ae4fa66695" name="Changes" comment="testing grid layout">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/elements/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/Header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/elements/Timeline.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/Timeline.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/elements/TimelineContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/TimelineContent.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/base/_layout.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/base/_layout.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/main.css.map" afterDir="false" />
@@ -18,7 +16,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/render-event" />
+        <entry key="$PROJECT_DIR$" value="feature/render-months-week" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -39,6 +37,10 @@
             <RecentBranchesForRepo>
               <option name="branches">
                 <list>
+                  <RecentBranch>
+                    <option name="branchName" value="test/testing-grid-layout" />
+                    <option name="lastUsedInstant" value="1641336119" />
+                  </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="feature/render-months-week" />
                     <option name="lastUsedInstant" value="1641330008" />
@@ -112,7 +114,8 @@
       <workItem from="1640617646813" duration="9824000" />
       <workItem from="1640638185647" duration="3450000" />
       <workItem from="1640685157224" duration="3935000" />
-      <workItem from="1641316727202" duration="15110000" />
+      <workItem from="1641316727202" duration="15198000" />
+      <workItem from="1641371017904" duration="1196000" />
     </task>
     <task id="LOCAL-00001" summary="Changed readme to include todo list and reminders">
       <created>1637602203636</created>
@@ -184,7 +187,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641334421708</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="testing grid layout">
+      <created>1641336132634</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1641336132634</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,7 +223,8 @@
     <MESSAGE value="testing" />
     <MESSAGE value="Changed lines to be grid" />
     <MESSAGE value="Do not need sidebar width anymore" />
-    <option name="LAST_COMMIT_MESSAGE" value="Do not need sidebar width anymore" />
+    <MESSAGE value="testing grid layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="testing grid layout" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
