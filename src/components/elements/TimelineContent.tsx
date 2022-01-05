@@ -6,6 +6,7 @@
 
 import React, { FunctionComponent } from 'react';
 import { EventItem, Group } from '../../types/misc';
+import PerfectScrollbar from 'react-perfect-scrollbar'
 
 interface OwnProps {
     groups: Array<Group>;

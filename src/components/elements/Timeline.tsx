@@ -11,6 +11,9 @@ import Header from './Header';
 import TimelineContent from './TimelineContent';
 import { calculateHeaderData } from '../../utils/header';
 import { populateEventsWidth } from '../../utils/eventItems';
+import 'react-perfect-scrollbar/dist/css/styles.css';
+import ScrollBar from 'react-perfect-scrollbar';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 
 interface OwnProps {
     groups: Array<Group>;
@@ -60,26 +63,21 @@ const Timeline: FunctionComponent<OwnProps> = (props: OwnProps) => {
                 renderGroupItem={renderGroupItem}
                 headerHeight={headerHeight}
             />
-            <div
-                className="rt-container"
-                style={{
-                    //marginLeft: `${sidebarWidth}px`,
-                    //width: `calc(100% - ${sidebarWidth}px)`,
-                    //maxWidth: `calc(100% - ${sidebarWidth}px)`,
-                }}
-            >
-                <Header
-                    headerData={headerData}
-                    setHeaderItemWidth={width => setHeaderItemWidth(width)}
-                />
-                <TimelineContent
-                    groups={groups}
-                    columnsSize={intervalsCounter}
-                    headerItemWidth={headerItemWidth}
-                    events={eventsWithWidth}
-                    eventRenderer={eventRenderer}
-                />
-            </div>
+            <PerfectScrollbar>
+                <div className="rt-container">
+                    <Header
+                        headerData={headerData}
+                        setHeaderItemWidth={width => setHeaderItemWidth(width)}
+                    />
+                    <TimelineContent
+                        groups={groups}
+                        columnsSize={intervalsCounter}
+                        headerItemWidth={headerItemWidth}
+                        events={eventsWithWidth}
+                        eventRenderer={eventRenderer}
+                    />
+                </div>
+            </PerfectScrollbar>
         </div>
     );
 }

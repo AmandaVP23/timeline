@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0e0af618-b5dd-47aa-b10b-36ae4fa66695" name="Changes" comment="Changed lines to be grid">
+    <list default="true" id="0e0af618-b5dd-47aa-b10b-36ae4fa66695" name="Changes" comment="testing grid layout">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/elements/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/Header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/elements/Timeline.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/Timeline.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/elements/TimelineContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/TimelineContent.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/base/_layout.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/base/_layout.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/components/_scroll.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/components/_scroll.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/components/_sidebar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/components/_sidebar.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/main.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/dates.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/dates.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/header.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/header.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,6 +118,7 @@
       <workItem from="1640638185647" duration="3450000" />
       <workItem from="1640685157224" duration="3935000" />
       <workItem from="1641316727202" duration="13387000" />
+      <workItem from="1641407686287" duration="3575000" />
     </task>
     <task id="LOCAL-00001" summary="Changed readme to include todo list and reminders">
       <created>1637602203636</created>

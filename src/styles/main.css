@@ -31,8 +31,9 @@ body {
 }
 
 .rt-container {
-  overflow: auto;
-  scroll-behavior: smooth;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
 }
 
 /**
@@ -88,7 +89,6 @@ body {
   z-index: 10;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   flex: 1 0 auto;
 }
 .ct-sidebar .ct-sidebar-group-item {
@@ -109,7 +109,7 @@ body {
 .ct-scroll {
   display: inline-block;
   background-color: darkslategray;
-  overflow-x: auto;
+  position: relative;
 }
 .ct-scroll__line {
   display: grid;

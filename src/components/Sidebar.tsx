@@ -33,7 +33,7 @@ const Sidebar: FunctionComponent<OwnProps> = (props: OwnProps) => {
     }, [sidebarRef, setSidebarWidth])
 
     return (
-        <div className="ct-sidebar" id="ct-sidebar" ref={sidebarRef} style={{ top: `${headerHeight}px` }}>
+        <div className="ct-sidebar" id="ct-sidebar" ref={sidebarRef} style={{ marginTop: `${headerHeight}px` }}>
             {groups.map(group => {
                 if (renderGroupItem) return renderGroupItem(group);
 
