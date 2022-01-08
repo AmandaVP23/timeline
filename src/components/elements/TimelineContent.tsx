@@ -21,7 +21,7 @@ const TimelineContent: FunctionComponent<OwnProps> = (props: OwnProps) => {
     } = props;
 
     const renderMarkers = (markers: Array<Marker>) => {
-        return markers.map((marker: Marker, idx: number) => {
+        return markers.map(marker => {
             // @ts-ignore
             const columnStart = (marker.left / headerItemWidth) - 1;
             // @ts-ignore
@@ -54,6 +54,7 @@ const TimelineContent: FunctionComponent<OwnProps> = (props: OwnProps) => {
                 const groupEvents = markers.filter(e => e.groupId === group.id);
                 const sidebarItem = document.querySelector(`[data-sidebar-item="${group.id}"]`);
                 let minHeight = 10;
+
                 if (sidebarItem) {
                     minHeight = sidebarItem.getBoundingClientRect().height;
                 }

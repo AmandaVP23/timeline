@@ -65,7 +65,7 @@ function App() {
         <Timeline
             groups={groups}
             intervalType="day"
-            startPeriod={new Date(2021, 10, 10)}
+            startPeriod={new Date(2021, 8, 10)}
             endPeriod={new Date(2021, 11, 20)}
             events={events}
             //eventRenderer={eventRenderer}

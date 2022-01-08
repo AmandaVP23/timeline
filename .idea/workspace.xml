@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0e0af618-b5dd-47aa-b10b-36ae4fa66695" name="Changes" comment="added perfect scrollbar">
+    <list default="true" id="0e0af618-b5dd-47aa-b10b-36ae4fa66695" name="Changes" comment="Implemented events grid row">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/elements/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/Header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/elements/Timeline.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/Timeline.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/elements/TimelineContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/TimelineContent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/base/_layout.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/base/_layout.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/components/_header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/components/_header.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/components/_sidebar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/components/_sidebar.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/main.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/misc.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/misc.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/eventItems.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/eventItems.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/header.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/header.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +123,7 @@
       <workItem from="1641541433713" duration="6385000" />
       <workItem from="1641553547844" duration="64000" />
       <workItem from="1641553923205" duration="1444000" />
-      <workItem from="1641648015059" duration="1869000" />
+      <workItem from="1641648015059" duration="3537000" />
     </task>
     <task id="LOCAL-00001" summary="Changed readme to include todo list and reminders">
       <created>1637602203636</created>
@@ -196,7 +195,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641422693538</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Implemented events grid row">
+      <created>1641649920064</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1641649920064</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,7 +231,8 @@
     <MESSAGE value="testing" />
     <MESSAGE value="Changed lines to be grid" />
     <MESSAGE value="added perfect scrollbar" />
-    <option name="LAST_COMMIT_MESSAGE" value="added perfect scrollbar" />
+    <MESSAGE value="Implemented events grid row" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented events grid row" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

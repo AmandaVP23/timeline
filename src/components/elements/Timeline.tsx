@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FunctionComponent, useEffect, useRef, useState } from 'react';
+import React, { FunctionComponent, useEffect, useState } from 'react';
 import Sidebar from '../Sidebar';
 import { EventItem, Group, IntervalType } from '../../types/misc';
 import Header from './Header';
@@ -12,7 +12,6 @@ import TimelineContent from './TimelineContent';
 import { calculateHeaderData } from '../../utils/header';
 import { populateMarkers } from '../../utils/eventItems';
 import 'react-perfect-scrollbar/dist/css/styles.css';
-import ScrollBar from 'react-perfect-scrollbar';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 
 interface OwnProps {
@@ -36,7 +35,6 @@ const Timeline: FunctionComponent<OwnProps> = (props: OwnProps) => {
         endPeriod,
     } = props;
 
-    const [sidebarWidth, setSidebarWidth] = useState(160);
     const [headerHeight, setHeaderHeight] = useState(60);
     const [headerItemWidth, setHeaderItemWidth] = useState(60);
 
@@ -59,15 +57,14 @@ const Timeline: FunctionComponent<OwnProps> = (props: OwnProps) => {
         <div className="rt-wrapper">
             <Sidebar
                 groups={groups}
-                setSidebarWidth={width => setSidebarWidth(width)}
                 renderGroupItem={renderGroupItem}
-                headerHeight={headerHeight}
             />
             <PerfectScrollbar>
                 <div className="rt-container">
                     <Header
                         headerData={headerData}
                         setHeaderItemWidth={width => setHeaderItemWidth(width)}
+                        intervalType={intervalType}
                     />
                     <TimelineContent
                         groups={groups}

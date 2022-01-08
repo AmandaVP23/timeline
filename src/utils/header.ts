@@ -8,8 +8,6 @@ import { HeaderData, IntervalType } from '../types/misc';
 import { getDaysDiff, getMonthLabel, getMonthsDiff } from './dates';
 
 const handleMonthIntervalType = (startPeriod: Date, endPeriod: Date) => {
-    let auxDate = new Date(startPeriod);
-
     const monthsDiff = getMonthsDiff(startPeriod, endPeriod);
     const headerData: Array<HeaderData> = [];
     for (let i = 0; i < monthsDiff; i++) {
@@ -20,24 +18,18 @@ const handleMonthIntervalType = (startPeriod: Date, endPeriod: Date) => {
         if (idx < 0) {
             headerData.push({
                 headerDate: new Date(auxDate.getFullYear(), auxDate.getMonth(), 1),
-                items: [new Date(auxDate)],
+                items: [new Date(auxDate.getFullYear(), auxDate.getMonth(), 1)],
             });
         } else {
-            console.log("exists");
             const newHeaderData = {
                 ...headerData[idx],
-                items: [...headerData[idx].items, new Date(auxDate)],
+                items: [...headerData[idx].items, new Date(auxDate.getFullYear(), auxDate.getMonth(), 1)],
             };
             headerData[idx] = { ...newHeaderData };
         }
-
-        console.log(auxDate);
     }
 
-    console.log("");
-    console.log("");
-    console.log("final");
-    console.log(headerData);
+    return headerData;
 }
 
 export const calculateHeaderData = (intervalType: IntervalType, startPeriod: Date, endPeriod?: Date): Array<HeaderData> => {
@@ -47,8 +39,10 @@ export const calculateHeaderData = (intervalType: IntervalType, startPeriod: Dat
 
     if (intervalType === 'month') {
         // todo - se não tiver mais que um mes entre start e end mostrar dias
-        handleMonthIntervalType(startPeriod, endDate);
+        return handleMonthIntervalType(startPeriod, endDate);
     }
+
+    // todo - colocar o resto numa função HandleDayIntervalType
 
     const daysDiff = getDaysDiff(startPeriod, endDate);
 
