@@ -5,61 +5,44 @@
  */
 
 import React, { FunctionComponent } from 'react';
-import { EventItem, Group } from '../../types/misc';
-import PerfectScrollbar from 'react-perfect-scrollbar'
+import { EventItem, Group, Marker } from '../../types/misc';
 
 interface OwnProps {
     groups: Array<Group>;
     columnsSize: number;
     headerItemWidth: number;
-    events: Array<EventItem>;
-    eventRenderer?(eventItem: EventItem, style: any): JSX.Element;
-}
-
-interface OwnProps {
-    groups: Array<Group>;
-    columnsSize: number;
-    headerItemWidth: number;
-    events: Array<EventItem>;
+    markers: Array<Marker>;
     eventRenderer?(eventItem: EventItem, style: any): JSX.Element;
 }
 
 const TimelineContent: FunctionComponent<OwnProps> = (props: OwnProps) => {
     const {
-        events, groups, headerItemWidth, columnsSize, eventRenderer,
+        markers, groups, headerItemWidth, columnsSize, eventRenderer,
     } = props;
 
-    const renderEvents = (events: Array<EventItem>) => {
-        return events.map((event: EventItem, idx: number) => {
+    const renderMarkers = (markers: Array<Marker>) => {
+        return markers.map((marker: Marker, idx: number) => {
             // @ts-ignore
-            const columnStart = (event.left / headerItemWidth) - 1;
+            const columnStart = (marker.left / headerItemWidth) - 1;
             // @ts-ignore
-            const columnEnd = columnStart + (event.width / headerItemWidth);
-
-            let overlapPreviousEvent = false;
-            if (idx > 0 && events.length > 1) {
-                const previousEvent = events[idx - 1];
-                const diff = event.startPeriod.getTime() - previousEvent.endPeriod.getTime();
-                overlapPreviousEvent = diff < 0;
-            }
-
+            const columnEnd = columnStart + (marker.width / headerItemWidth);
             const style = {
-                width: `${event.width}px`,
-                marginLeft: `${event.left}px`,
+                width: `${marker.width}px`,
+                marginLeft: `${marker.left}px`,
                 gridColumn: columnStart / columnEnd,
-                backgroundColor: event.backgroundColor,
-                gridRow: overlapPreviousEvent ? '2 / 3' : '1 / 2',
+                backgroundColor: marker.backgroundColor,
+                gridRow: marker.gridRow,
             };
 
-            if (eventRenderer) return eventRenderer(event, style);
+            if (eventRenderer) return eventRenderer(marker, style);
 
             return (
                 <div
-                    key={event.id}
+                    key={marker.id}
                     className="ct-event"
                     style={style}
                 >
-                    {event.title}
+                    {marker.title}
                 </div>
             );
         })
@@ -68,7 +51,7 @@ const TimelineContent: FunctionComponent<OwnProps> = (props: OwnProps) => {
     return (
         <div className="ct-scroll">
             {groups.map((group: Group, idx: number) => {
-                const groupEvents = events.filter(e => e.groupId === group.id);
+                const groupEvents = markers.filter(e => e.groupId === group.id);
                 const sidebarItem = document.querySelector(`[data-sidebar-item="${group.id}"]`);
                 let minHeight = 10;
                 if (sidebarItem) {
@@ -85,7 +68,7 @@ const TimelineContent: FunctionComponent<OwnProps> = (props: OwnProps) => {
                             minHeight: `${minHeight}px`,
                         }}
                     >
-                        {renderEvents(groupEvents)}
+                        {renderMarkers(groupEvents)}
                     </div>
                 );
             })}

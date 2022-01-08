@@ -4,20 +4,31 @@
  *
  */
 
-import { EventItem, HeaderData } from '../types/misc';
+import { EventItem, HeaderData, Marker } from '../types/misc';
 
-export const populateEventsWidth = (headerData: Array<HeaderData>, events: Array<EventItem>, itemWidth: number) => {
+export const populateMarkers = (headerData: Array<HeaderData>, events: Array<EventItem>, itemWidth: number): Array<Marker> => {
     const newEvents = [...events];
     let allItems: Array<Date> = [];
     headerData.forEach(h => {
         allItems = allItems.concat([...h.items])
     });
 
-    Object.keys(events).forEach(idx => {
-        const event = events[Number(idx)];
+    const markers: Array<Marker> = [];
+    let maxTopLeftWidthSum = 0;
+    let maxBottomLeftWidthSum = 0;
+
+    Object.keys(events).forEach((v, idx) => {
+        const event = events[idx];
         // todo - create function that formats date and aceppts a format string
         const eventStartStr = `${event.startPeriod.getFullYear()}/${event.startPeriod.getMonth()}/${event.startPeriod.getDate()}`;
         const eventEndStr = `${event.endPeriod.getFullYear()}/${event.endPeriod.getMonth()}/${event.endPeriod.getDate()}`;
+
+        let gridRow = '1 / 3';
+        const nextEvent = newEvents[idx + 1];
+        if (nextEvent && nextEvent.groupId === event.groupId) {
+            const diff = nextEvent.startPeriod.getTime() - event.endPeriod.getTime();
+            gridRow = diff < 0 ? '1 / 2' : ' 1 / 3';
+        }
 
         let left = 0;
         let width = 0;
@@ -30,11 +41,25 @@ export const populateEventsWidth = (headerData: Array<HeaderData>, events: Array
             if (isEnd) {
                 addingWidth = false;
                 width += itemWidth;
-                newEvents[Number(idx)] = {
-                    ...newEvents[Number(idx)],
+
+                if (left < maxTopLeftWidthSum) {
+                    gridRow = '2 / 3';
+                } else if (left < maxBottomLeftWidthSum) {
+                    gridRow = '1 / 2';
+                }
+
+                if (gridRow === '1 / 2') {
+                    maxTopLeftWidthSum = left + width;
+                } else if (gridRow === '2 / 3') {
+                    maxBottomLeftWidthSum = left + width;
+                }
+
+                markers.push({
+                    ...newEvents[idx],
                     left,
                     width,
-                }
+                    gridRow,
+                });
                 break;
             }
             if (isStart) {
@@ -48,5 +73,5 @@ export const populateEventsWidth = (headerData: Array<HeaderData>, events: Array
         }
     });
 
-    return newEvents;
+    return markers;
 }

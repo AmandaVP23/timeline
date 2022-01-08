@@ -4,13 +4,13 @@
  *
  */
 
-import React, { FunctionComponent, useEffect, useState } from 'react';
+import React, { FunctionComponent, useEffect, useRef, useState } from 'react';
 import Sidebar from '../Sidebar';
 import { EventItem, Group, IntervalType } from '../../types/misc';
 import Header from './Header';
 import TimelineContent from './TimelineContent';
 import { calculateHeaderData } from '../../utils/header';
-import { populateEventsWidth } from '../../utils/eventItems';
+import { populateMarkers } from '../../utils/eventItems';
 import 'react-perfect-scrollbar/dist/css/styles.css';
 import ScrollBar from 'react-perfect-scrollbar';
 import PerfectScrollbar from 'react-perfect-scrollbar';
@@ -53,7 +53,7 @@ const Timeline: FunctionComponent<OwnProps> = (props: OwnProps) => {
         intervalsCounter += header.items.length;
     });
 
-    const eventsWithWidth = populateEventsWidth(headerData, events, headerItemWidth);
+    const markers = populateMarkers(headerData, events, headerItemWidth);
 
     return (
         <div className="rt-wrapper">
@@ -73,7 +73,7 @@ const Timeline: FunctionComponent<OwnProps> = (props: OwnProps) => {
                         groups={groups}
                         columnsSize={intervalsCounter}
                         headerItemWidth={headerItemWidth}
-                        events={eventsWithWidth}
+                        markers={markers}
                         eventRenderer={eventRenderer}
                     />
                 </div>

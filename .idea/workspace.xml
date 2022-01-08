@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0e0af618-b5dd-47aa-b10b-36ae4fa66695" name="Changes" comment="testing grid layout">
+    <list default="true" id="0e0af618-b5dd-47aa-b10b-36ae4fa66695" name="Changes" comment="added perfect scrollbar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/elements/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/Header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/elements/Timeline.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/Timeline.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/elements/TimelineContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/TimelineContent.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/base/_layout.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/base/_layout.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/components/_scroll.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/components/_scroll.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/components/_sidebar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/components/_sidebar.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/main.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/misc.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/misc.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/eventItems.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/eventItems.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +118,13 @@
       <workItem from="1640638185647" duration="3450000" />
       <workItem from="1640685157224" duration="3935000" />
       <workItem from="1641316727202" duration="13387000" />
-      <workItem from="1641407686287" duration="3575000" />
+      <workItem from="1641407686287" duration="3624000" />
+      <workItem from="1641456096999" duration="14173000" />
+      <workItem from="1641540780881" duration="459000" />
+      <workItem from="1641541433713" duration="6385000" />
+      <workItem from="1641553547844" duration="64000" />
+      <workItem from="1641553923205" duration="1444000" />
+      <workItem from="1641648015059" duration="1869000" />
     </task>
     <task id="LOCAL-00001" summary="Changed readme to include todo list and reminders">
       <created>1637602203636</created>
@@ -183,7 +189,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641329796702</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="added perfect scrollbar">
+      <created>1641422693538</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1641422693538</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,7 +224,8 @@
     <MESSAGE value="Render multiple events oin same line" />
     <MESSAGE value="testing" />
     <MESSAGE value="Changed lines to be grid" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed lines to be grid" />
+    <MESSAGE value="added perfect scrollbar" />
+    <option name="LAST_COMMIT_MESSAGE" value="added perfect scrollbar" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

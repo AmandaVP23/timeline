@@ -27,3 +27,15 @@ export interface EventItem {
     left?: number;
     backgroundColor?: string;
 }
+
+export interface Marker {
+    id: number | string;
+    groupId: number | string;
+    title: string;
+    startPeriod: Date;
+    endPeriod: Date;
+    width: number;
+    left: number;
+    backgroundColor?: string;
+    gridRow: string;
+}
