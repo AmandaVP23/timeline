@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, Component } from 'react';
 import { EventItem, Group, Marker } from '../../types/misc';
 
 interface OwnProps {
@@ -15,12 +15,57 @@ interface OwnProps {
     eventRenderer?(eventItem: EventItem, style: any): JSX.Element;
 }
 
-const TimelineContent: FunctionComponent<OwnProps> = (props: OwnProps) => {
-    const {
-        markers, groups, headerItemWidth, columnsSize, eventRenderer,
-    } = props;
+interface OwnState {
+    isPrepared: boolean;
+}
 
-    const renderMarkers = (markers: Array<Marker>) => {
+const initialState: OwnState = {
+    isPrepared: false,
+};
+
+class TimelineContent extends Component<OwnProps, OwnState> {
+    state = initialState;
+
+    private mutationObserver: MutationObserver | null = null;
+
+    componentDidMount() {
+        const { groups } = this.props;
+        if (groups.length < 0) return;
+
+        const firstGroupSidebarItem = document.querySelector(`[data-sidebar-item="${groups[0].id}"]`);
+        if (firstGroupSidebarItem) {
+            this.setState({
+                isPrepared: true,
+            });
+            return;
+        }
+
+        this.mutationObserver = new MutationObserver(() => {
+            const firstGroupSidebarItem = document.querySelector(`[data-sidebar-item="${groups[0].id}"]`);
+            if (firstGroupSidebarItem) {
+                this.setState({
+                    isPrepared: true,
+                });
+                this.removeObserver();
+            }
+        });
+
+        this.mutationObserver.observe(document, { subtree: true, childList: true });
+    }
+
+    componentWillUnmount() {
+        this.removeObserver();
+    }
+
+    removeObserver = () => {
+        if (this.mutationObserver) {
+            this.mutationObserver.disconnect();
+            this.mutationObserver = null;
+        }
+    }
+
+    renderMarkers = (markers: Array<Marker>) => {
+        const { eventRenderer, headerItemWidth } = this.props;
         return markers.map(marker => {
             // @ts-ignore
             const columnStart = (marker.left / headerItemWidth) - 1;
@@ -48,33 +93,40 @@ const TimelineContent: FunctionComponent<OwnProps> = (props: OwnProps) => {
         })
     }
 
-    return (
-        <div className="ct-scroll">
-            {groups.map((group: Group, idx: number) => {
-                const groupEvents = markers.filter(e => e.groupId === group.id);
-                const sidebarItem = document.querySelector(`[data-sidebar-item="${group.id}"]`);
-                let minHeight = 10;
+    render() {
+        const {
+            markers, groups, headerItemWidth, columnsSize,
+        } = this.props;
 
-                if (sidebarItem) {
-                    minHeight = sidebarItem.getBoundingClientRect().height;
-                }
+        return (
+            <div className="ct-scroll">
+                {groups.map((group: Group, idx: number) => {
+                    const groupEvents = markers.filter(e => e.groupId === group.id);
+                    const sidebarItem = document.querySelector(`[data-sidebar-item="${group.id}"]`);
+                    let minHeight = 10;
 
-                return (
-                    <div
-                        key={idx}
-                        className="ct-scroll__line"
-                        data-line-groupid={group.id}
-                        style={{
-                            gridTemplateColumns: `repeat(${columnsSize}, ${headerItemWidth}px)`,
-                            minHeight: `${minHeight}px`,
-                        }}
-                    >
-                        {renderMarkers(groupEvents)}
-                    </div>
-                );
-            })}
-        </div>
-    );
+                    console.log("has sidebar item", (!!sidebarItem));
+                    if (sidebarItem) {
+                        minHeight = sidebarItem.getBoundingClientRect().height;
+                    }
+
+                    return (
+                        <div
+                            key={idx}
+                            className="ct-scroll__line"
+                            data-line-groupid={group.id}
+                            style={{
+                                gridTemplateColumns: `repeat(${columnsSize}, ${headerItemWidth}px)`,
+                                minHeight: `${minHeight}px`,
+                            }}
+                        >
+                            {this.renderMarkers(groupEvents)}
+                        </div>
+                    );
+                })}
+            </div>
+        );
+    }
 }
 
 export default TimelineContent;

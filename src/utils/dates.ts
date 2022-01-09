@@ -14,7 +14,6 @@ export const getDaysDiff = (start: Date, end: Date) => {
 
 export const getMonthsDiff = (start: Date, end: Date) => {
     const diffDays = getDaysDiff(start, end);
-    console.log("diff", diffDays, diffDays / 31, " -  ", Math.round(diffDays / 31));
     return Math.round(diffDays / 31) + 1;
 }
 

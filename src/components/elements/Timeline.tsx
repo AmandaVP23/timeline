@@ -51,7 +51,7 @@ const Timeline: FunctionComponent<OwnProps> = (props: OwnProps) => {
         intervalsCounter += header.items.length;
     });
 
-    const markers = populateMarkers(headerData, events, headerItemWidth);
+    const markers = populateMarkers(intervalType, headerData, events, headerItemWidth);
 
     return (
         <div className="rt-wrapper">

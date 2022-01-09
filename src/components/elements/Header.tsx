@@ -21,7 +21,6 @@ const Header: FunctionComponent<OwnProps> = (props: OwnProps) => {
 
     useEffect(() => {
         if (itemRef.current) {
-            console.log("offsetwith", itemRef.current.offsetWidth);
             setHeaderItemWidth(itemRef.current.offsetWidth);
         }
     }, [itemRef, setHeaderItemWidth]);

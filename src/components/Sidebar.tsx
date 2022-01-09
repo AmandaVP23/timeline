@@ -25,9 +25,6 @@ const Sidebar: FunctionComponent<OwnProps> = (props: OwnProps) => {
             {groups.map(group => {
                 // todo - send props to renderGroupItem
                 if (renderGroupItem) return renderGroupItem(group);
-
-                console.log("id", group.id);
-
                 return (
                     <div key={group.id} className={`ct-sidebar-group-item ${groupsClass || ''}`} data-sidebar-item={group.id}>
                         {group.title}
