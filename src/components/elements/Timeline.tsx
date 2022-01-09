@@ -4,15 +4,16 @@
  *
  */
 
-import React, { FunctionComponent, useEffect, useState } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import Sidebar from '../Sidebar';
 import { EventItem, Group, IntervalType } from '../../types/misc';
 import Header from './Header';
 import TimelineContent from './TimelineContent';
 import { calculateHeaderData } from '../../utils/header';
 import { populateMarkers } from '../../utils/eventItems';
-import 'react-perfect-scrollbar/dist/css/styles.css';
 import PerfectScrollbar from 'react-perfect-scrollbar';
+
+import 'react-perfect-scrollbar/dist/css/styles.css';
 
 interface OwnProps {
     groups: Array<Group>;
@@ -35,15 +36,7 @@ const Timeline: FunctionComponent<OwnProps> = (props: OwnProps) => {
         endPeriod,
     } = props;
 
-    const [headerHeight, setHeaderHeight] = useState(60);
     const [headerItemWidth, setHeaderItemWidth] = useState(60);
-
-    useEffect(() => {
-        const headerEl = document.getElementById('ct-header-root');
-        if (headerEl) {
-            setHeaderHeight(headerEl.offsetHeight);
-        }
-    }, [headerHeight, setHeaderHeight]);
 
     const headerData = calculateHeaderData(intervalType, startPeriod, endPeriod);
     let intervalsCounter = 0;

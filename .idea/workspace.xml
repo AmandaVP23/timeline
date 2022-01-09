@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0e0af618-b5dd-47aa-b10b-36ae4fa66695" name="Changes" comment="renders by month header, still not render items (markers)">
+    <list default="true" id="0e0af618-b5dd-47aa-b10b-36ae4fa66695" name="Changes" comment="renders markers by month&#10;added MutationObserver to TimelineContent cause was having a bug that only happened sometimes when getting the sidebar item">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/elements/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/elements/Timeline.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/Timeline.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/elements/TimelineContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/TimelineContent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/components/_sidebar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/components/_sidebar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/main.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/dates.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/dates.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/misc.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/misc.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/eventItems.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/eventItems.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -123,7 +119,7 @@
       <workItem from="1641553547844" duration="64000" />
       <workItem from="1641553923205" duration="1444000" />
       <workItem from="1641648015059" duration="18327000" />
-      <workItem from="1641721659207" duration="1398000" />
+      <workItem from="1641721659207" duration="4047000" />
     </task>
     <task id="LOCAL-00001" summary="Changed readme to include todo list and reminders">
       <created>1637602203636</created>
@@ -209,7 +205,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641664895846</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="renders markers by month&#10;added MutationObserver to TimelineContent cause was having a bug that only happened sometimes when getting the sidebar item">
+      <created>1641723146373</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1641723146373</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,7 +243,8 @@
     <MESSAGE value="added perfect scrollbar" />
     <MESSAGE value="Implemented events grid row" />
     <MESSAGE value="renders by month header, still not render items (markers)" />
-    <option name="LAST_COMMIT_MESSAGE" value="renders by month header, still not render items (markers)" />
+    <MESSAGE value="renders markers by month&#10;added MutationObserver to TimelineContent cause was having a bug that only happened sometimes when getting the sidebar item" />
+    <option name="LAST_COMMIT_MESSAGE" value="renders markers by month&#10;added MutationObserver to TimelineContent cause was having a bug that only happened sometimes when getting the sidebar item" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

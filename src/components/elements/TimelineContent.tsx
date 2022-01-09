@@ -4,7 +4,7 @@
  *
  */
 
-import React, { FunctionComponent, Component } from 'react';
+import React, { Component } from 'react';
 import { EventItem, Group, Marker } from '../../types/misc';
 
 interface OwnProps {
@@ -97,6 +97,9 @@ class TimelineContent extends Component<OwnProps, OwnState> {
         const {
             markers, groups, headerItemWidth, columnsSize,
         } = this.props;
+        const { isPrepared } = this.state;
+
+        if (!isPrepared) return <div />;
 
         return (
             <div className="ct-scroll">
@@ -105,7 +108,6 @@ class TimelineContent extends Component<OwnProps, OwnState> {
                     const sidebarItem = document.querySelector(`[data-sidebar-item="${group.id}"]`);
                     let minHeight = 10;
 
-                    console.log("has sidebar item", (!!sidebarItem));
                     if (sidebarItem) {
                         minHeight = sidebarItem.getBoundingClientRect().height;
                     }
