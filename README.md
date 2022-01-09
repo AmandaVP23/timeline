@@ -2,7 +2,7 @@
 - [ ] Have functions in props like renderGroupItem that receives parameters like groupId, that allows override render;
 - [ ] Receive props like intervalType (day, week, month) that is used to decide what to show;
 - [ ] Receive color code when rendering the "event" box but also make available a function to override the render, so it can be customized, example: holiday event;
-- [ ] Have props so the user can define the periods to show, maybe the end can be optional and if is not set then is the actual date or something like that;
+- [x] Have props so the user can define the periods to show, maybe the end can be optional and if is not set then is the actual date or something like that;
 ---
 
 # Reminders:
