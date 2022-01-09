@@ -14,5 +14,7 @@
 }
 
 .rt-container {
-    overflow: auto;
+    overflow: hidden;
+    position: relative;
+    display: inline-grid;
 }

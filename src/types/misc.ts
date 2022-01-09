@@ -16,14 +16,23 @@ export interface HeaderData {
     items: Array<Date>;
 }
 
-// todo adicionar codigo de cor ao evento
 export interface EventItem {
     id: number | string;
     groupId: number | string;
     title: string;
     startPeriod: Date;
     endPeriod: Date;
-    width?: number; // todo - isto é apenas para uso interno - talvez ter outra variavel
-    left?: number;
     backgroundColor?: string;
+}
+
+export interface Marker {
+    id: number | string;
+    groupId: number | string;
+    title: string;
+    startPeriod: Date;
+    endPeriod: Date;
+    width: number;
+    left: number;
+    backgroundColor?: string;
+    gridRow: string;
 }

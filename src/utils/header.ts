@@ -5,13 +5,46 @@
  */
 
 import { HeaderData, IntervalType } from '../types/misc';
-import { getDaysDiff, getMonthLabel } from './dates';
+import { getDaysDiff, getMonthLabel, getMonthsDiff } from './dates';
 
-export const calculateHeaderData = (intervalType: IntervalType, startPeriod: Date): Array<HeaderData> => {
+const handleMonthIntervalType = (startPeriod: Date, endPeriod: Date) => {
+    const monthsDiff = getMonthsDiff(startPeriod, endPeriod);
+    const headerData: Array<HeaderData> = [];
+    for (let i = 0; i < monthsDiff; i++) {
+        const auxDate = new Date(new Date(startPeriod).setMonth(startPeriod.getMonth() + i));
+        const year = auxDate.getFullYear();
+        const idx = headerData.findIndex(h => h.headerDate.getFullYear() === year);
+
+        if (idx < 0) {
+            headerData.push({
+                headerDate: new Date(auxDate.getFullYear(), auxDate.getMonth(), 1),
+                items: [new Date(auxDate.getFullYear(), auxDate.getMonth(), 1)],
+            });
+        } else {
+            const newHeaderData = {
+                ...headerData[idx],
+                items: [...headerData[idx].items, new Date(auxDate.getFullYear(), auxDate.getMonth(), 1)],
+            };
+            headerData[idx] = { ...newHeaderData };
+        }
+    }
+
+    return headerData;
+}
+
+export const calculateHeaderData = (intervalType: IntervalType, startPeriod: Date, endPeriod?: Date): Array<HeaderData> => {
     // todo - calcular por type
-    // todo - pegar endPeriod - opcional
 
-    const daysDiff = getDaysDiff(startPeriod, new Date());
+    const endDate = endPeriod || new Date();
+
+    if (intervalType === 'month') {
+        // todo - se não tiver mais que um mes entre start e end mostrar dias
+        return handleMonthIntervalType(startPeriod, endDate);
+    }
+
+    // todo - colocar o resto numa função HandleDayIntervalType
+
+    const daysDiff = getDaysDiff(startPeriod, endDate);
 
     const headerData: Array<HeaderData> = [];
 
@@ -23,7 +56,7 @@ export const calculateHeaderData = (intervalType: IntervalType, startPeriod: Dat
         if (idx < 0) {
             headerData.push({
                 headerDate: new Date(auxDate.getFullYear(), auxDate.getMonth(), 1),
-                items: [new Date(auxDate)],// [auxDate.getDate().toString()],
+                items: [new Date(auxDate)],
             });
         } else {
             const newHeaderData = {

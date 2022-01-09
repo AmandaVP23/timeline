@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0e0af618-b5dd-47aa-b10b-36ae4fa66695" name="Changes" comment="testing">
+    <list default="true" id="0e0af618-b5dd-47aa-b10b-36ae4fa66695" name="Changes" comment="renders markers by month&#10;added MutationObserver to TimelineContent cause was having a bug that only happened sometimes when getting the sidebar item">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/elements/Timeline.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/Timeline.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/elements/TimelineContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/TimelineContent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/components/_scroll.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/components/_scroll.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/components/_sidebar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/components/_sidebar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/main.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/misc.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/misc.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/eventItems.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/eventItems.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,7 +17,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="feature/render-event" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -40,24 +39,12 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
+                    <option name="branchName" value="feature/render-months-week" />
+                    <option name="lastUsedInstant" value="1641330008" />
+                  </RecentBranch>
+                  <RecentBranch>
                     <option name="branchName" value="feature/render-event" />
                     <option name="lastUsedInstant" value="1641320847" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="test/test-different-layout" />
-                    <option name="lastUsedInstant" value="1640685357" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="feature/events" />
-                    <option name="lastUsedInstant" value="1640622754" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="feature/change_layout" />
-                    <option name="lastUsedInstant" value="1640552986" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="feature/header" />
-                    <option name="lastUsedInstant" value="1640552193" />
                   </RecentBranch>
                 </list>
               </option>
@@ -124,7 +111,15 @@
       <workItem from="1640617646813" duration="9824000" />
       <workItem from="1640638185647" duration="3450000" />
       <workItem from="1640685157224" duration="3935000" />
-      <workItem from="1641316727202" duration="8838000" />
+      <workItem from="1641316727202" duration="13387000" />
+      <workItem from="1641407686287" duration="3624000" />
+      <workItem from="1641456096999" duration="14173000" />
+      <workItem from="1641540780881" duration="459000" />
+      <workItem from="1641541433713" duration="6385000" />
+      <workItem from="1641553547844" duration="64000" />
+      <workItem from="1641553923205" duration="1444000" />
+      <workItem from="1641648015059" duration="18327000" />
+      <workItem from="1641721659207" duration="4047000" />
     </task>
     <task id="LOCAL-00001" summary="Changed readme to include todo list and reminders">
       <created>1637602203636</created>
@@ -182,7 +177,42 @@
       <option name="project" value="LOCAL" />
       <updated>1641325502233</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Changed lines to be grid">
+      <created>1641329796702</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1641329796702</updated>
+    </task>
+    <task id="LOCAL-00010" summary="added perfect scrollbar">
+      <created>1641422693538</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1641422693538</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Implemented events grid row">
+      <created>1641649920064</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1641649920064</updated>
+    </task>
+    <task id="LOCAL-00012" summary="renders by month header, still not render items (markers)">
+      <created>1641664895846</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1641664895846</updated>
+    </task>
+    <task id="LOCAL-00013" summary="renders markers by month&#10;added MutationObserver to TimelineContent cause was having a bug that only happened sometimes when getting the sidebar item">
+      <created>1641723146373</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1641723146373</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -209,7 +239,12 @@
     <MESSAGE value="Render events" />
     <MESSAGE value="Render multiple events oin same line" />
     <MESSAGE value="testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="testing" />
+    <MESSAGE value="Changed lines to be grid" />
+    <MESSAGE value="added perfect scrollbar" />
+    <MESSAGE value="Implemented events grid row" />
+    <MESSAGE value="renders by month header, still not render items (markers)" />
+    <MESSAGE value="renders markers by month&#10;added MutationObserver to TimelineContent cause was having a bug that only happened sometimes when getting the sidebar item" />
+    <option name="LAST_COMMIT_MESSAGE" value="renders markers by month&#10;added MutationObserver to TimelineContent cause was having a bug that only happened sometimes when getting the sidebar item" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -31,7 +31,9 @@ body {
 }
 
 .rt-container {
-  overflow: auto;
+  overflow: hidden;
+  position: relative;
+  display: inline-grid;
 }
 
 /**
@@ -75,6 +77,7 @@ body {
   width: 100%;
   border-right: 1px solid #BBBBBB;
   border-left: 1px solid #BBBBBB;
+  padding: 5px 10px;
 }
 
 /**
@@ -83,11 +86,13 @@ body {
  *
  */
 .ct-sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 200px;
   z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex: 1 0 auto;
+  max-width: 200px;
 }
 .ct-sidebar .ct-sidebar-group-item {
   display: flex;
@@ -107,7 +112,7 @@ body {
 .ct-scroll {
   display: inline-block;
   background-color: darkslategray;
-  overflow-x: auto;
+  position: relative;
 }
 .ct-scroll__line {
   display: grid;
