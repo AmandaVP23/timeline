@@ -29,26 +29,26 @@ const events: Array<EventItem> = [{
 }, {
     id: 13,
     groupId: 1,
-    title: 'Event 2-3',
+    title: 'Event 1-3',
     startPeriod: new Date(2021, 10, 19),
     endPeriod: new Date(2021, 10, 22),
 }, {
     id: 14,
     groupId: 1,
-    title: 'Event 2-4',
+    title: 'Event 1-4',
     startPeriod: new Date(2021, 10, 24),
     endPeriod: new Date(2021, 11, 15)
 }, {
     id: 31,
     groupId: 3,
-    title: 'Event 3',
+    title: 'Event 2-1',
     startPeriod: new Date(2021, 10, 25),
     endPeriod: new Date(2021, 11, 3),
     backgroundColor: '#FF1122',
 }, {
     id: 32,
     groupId: 3,
-    title: 'Event 3',
+    title: 'Event 2-2',
     startPeriod: new Date(2021, 11, 5),
     endPeriod: new Date(2021, 11, 7),
     backgroundColor: '#FF1122',
@@ -64,9 +64,9 @@ function App() {
     return (
         <Timeline
             groups={groups}
-            intervalType="month"
-            startPeriod={new Date(2021, 8, 10)}
-            endPeriod={new Date(2021, 11, 20)}
+            intervalType="day"
+            startPeriod={new Date(2021, 10, 7)}
+            endPeriod={new Date(2021, 11, 24)}
             events={events}
             //eventRenderer={eventRenderer}
         />

@@ -12,6 +12,7 @@ const getDateStringToCompareByIntervalType = (intervalType: IntervalType, period
         case 'day':
             periodStr = `${period.getFullYear()}/${period.getMonth()}/${period.getDate()}`;
             break;
+        case 'week':
         case 'month':
             periodStr = `${period.getFullYear()}/${period.getMonth()}`;
             break;
@@ -45,16 +46,23 @@ export const populateMarkers = (intervalType: IntervalType, headerData: Array<He
         let width = 0;
         let addingWidth = false;
 
-        for (let date of allItems) {
+        Object.keys(allItems).forEach(itemIdx => {
+            const date = allItems[Number(itemIdx)];
             const dateStr = getDateStringToCompareByIntervalType(intervalType, date);
             const isStart = dateStr === eventStartStr;
             const isEnd = dateStr === eventEndStr;
+
+            console.log("")
+
             if (isEnd) {
                 addingWidth = false;
                 width += itemWidth;
 
                 if (intervalType === 'month') {
                     const daysLeft = Math.round((itemWidth / 30) * event.startPeriod.getDate());
+                    left += daysLeft;
+                } else if (intervalType === 'week') {
+                    const daysLeft = Math.round((itemWidth / 7) * event.startPeriod.getDate());
                     left += daysLeft;
                 }
 
@@ -81,7 +89,6 @@ export const populateMarkers = (intervalType: IntervalType, headerData: Array<He
                 }
 
                 markers.push(marker);
-                break;
             }
             if (isStart) {
                 addingWidth = true;
@@ -91,8 +98,67 @@ export const populateMarkers = (intervalType: IntervalType, headerData: Array<He
             } else {
                 left += itemWidth;
             }
-        }
+        })
+
+        // for (let date of allItems) {
+        //     const dateStr = getDateStringToCompareByIntervalType(intervalType, date);
+        //     const isStart = dateStr === eventStartStr;
+        //     const isEnd = dateStr === eventEndStr;
+        //
+        //     console.log("")
+        //
+        //     if (isEnd) {
+        //         addingWidth = false;
+        //         width += itemWidth;
+        //
+        //         if (intervalType === 'month') {
+        //             const daysLeft = Math.round((itemWidth / 30) * event.startPeriod.getDate());
+        //             left += daysLeft;
+        //         } else if (intervalType === 'week') {
+        //             const daysLeft = Math.round((itemWidth / 7) * event.startPeriod.getDate());
+        //             left += daysLeft;
+        //         }
+        //
+        //         const maxLeftWidthSum = maxLeftWidthMarker ? maxLeftWidthMarker.width + maxLeftWidthMarker.left : 0;
+        //         const leftWidthSum = left + width;
+        //
+        //         if (maxLeftWidthMarker && left < maxLeftWidthSum) {
+        //             if (maxLeftWidthMarker.gridRow === '1 / 2') {
+        //                 gridRow = '2 / 3';
+        //             } else if (maxLeftWidthMarker.gridRow === '2 / 3') {
+        //                 gridRow = '1 / 2';
+        //             }
+        //         }
+        //
+        //         const marker = {
+        //             ...newEvents[idx],
+        //             left,
+        //             width,
+        //             gridRow,
+        //         };
+        //
+        //         if (maxLeftWidthSum <= leftWidthSum) {
+        //             maxLeftWidthMarker = marker;
+        //         }
+        //
+        //         markers.push(marker);
+        //         break;
+        //     }
+        //     if (isStart) {
+        //         addingWidth = true;
+        //         width += itemWidth;
+        //     } else if (addingWidth) {
+        //         width += itemWidth;
+        //     } else {
+        //         left += itemWidth;
+        //     }
+        // }
     });
+
+    console.log("events");
+    console.log(events);
+    console.log("markers");
+    console.log(markers);
 
     return markers;
 }

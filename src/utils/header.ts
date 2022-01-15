@@ -7,6 +7,68 @@
 import { HeaderData, IntervalType } from '../types/misc';
 import { getDaysDiff, getMonthLabel, getMonthsDiff } from './dates';
 
+const handleDayIntervalType = (startPeriod: Date, endPeriod: Date) => {
+    const daysDiff = getDaysDiff(startPeriod, endPeriod);
+
+    const headerData: Array<HeaderData> = [];
+
+    for (let i = 0; i <= daysDiff; i++) {
+        const auxDate = new Date(new Date(startPeriod).setDate(startPeriod.getDate() + i));
+        const monthStr = getMonthLabel(auxDate.getMonth());
+        const idx = headerData.findIndex(h => getMonthLabel(h.headerDate.getMonth()) === monthStr);
+
+        if (idx < 0) {
+            headerData.push({
+                headerDate: new Date(auxDate.getFullYear(), auxDate.getMonth(), 1),
+                items: [new Date(auxDate)],
+            });
+        } else {
+            const newHeaderData = {
+                ...headerData[idx],
+                items: [...headerData[idx].items, new Date(auxDate)],
+            };
+            headerData[idx] = { ...newHeaderData };
+        }
+    }
+
+    return headerData;
+}
+
+const handleWeekIntervalType = (startPeriod: Date, endPeriod: Date) => {
+    // todo - week starts on monday
+    // todo - se o startPeriod não for uma segunda pegar a segunda anterior
+
+    let startWeekDayDiff = startPeriod.getDay() === 0 ? 6 : Math.abs(1 - startPeriod.getDay());
+    const startDate = new Date(new Date(startPeriod).setDate(startPeriod.getDate() - startWeekDayDiff));
+
+    const endWeekDayDiff = endPeriod.getDay() === 0 ? 1 : Math.abs(8 - endPeriod.getDay());
+    let endDate = new Date(new Date(endPeriod).setDate(endPeriod.getDate() + endWeekDayDiff));
+
+    const daysDiff = getDaysDiff(startDate, endDate);
+    const headerData: Array<HeaderData> = [];
+
+    for (let i = 0; i <= daysDiff; i += 7) {
+        const auxDate = new Date(new Date(startDate).setDate(startDate.getDate() + i));
+        const monthStr = getMonthLabel(auxDate.getMonth());
+        const idx = headerData.findIndex(h => getMonthLabel(h.headerDate.getMonth()) === monthStr);
+
+        if (idx < 0) {
+            headerData.push({
+                headerDate: new Date(auxDate.getFullYear(), auxDate.getMonth(), 1),
+                items: [new Date(auxDate)],
+            });
+        } else {
+            const newHeaderData = {
+                ...headerData[idx],
+                items: [...headerData[idx].items, new Date(auxDate)],
+            };
+            headerData[idx] = { ...newHeaderData };
+        }
+    }
+
+    return headerData;
+}
+
 const handleMonthIntervalType = (startPeriod: Date, endPeriod: Date) => {
     const monthsDiff = getMonthsDiff(startPeriod, endPeriod);
     const headerData: Array<HeaderData> = [];
@@ -33,39 +95,15 @@ const handleMonthIntervalType = (startPeriod: Date, endPeriod: Date) => {
 }
 
 export const calculateHeaderData = (intervalType: IntervalType, startPeriod: Date, endPeriod?: Date): Array<HeaderData> => {
-    // todo - calcular por type
-
     const endDate = endPeriod || new Date();
 
-    if (intervalType === 'month') {
-        // todo - se não tiver mais que um mes entre start e end mostrar dias
-        return handleMonthIntervalType(startPeriod, endDate);
+    switch (intervalType) {
+        case 'day':
+            return handleDayIntervalType(startPeriod, endDate);
+        case 'week':
+            return handleWeekIntervalType(startPeriod, endDate);
+        case 'month':
+            // todo - se não tiver mais que um mes entre start e end mostrar dias
+            return handleMonthIntervalType(startPeriod, endDate);
     }
-
-    // todo - colocar o resto numa função HandleDayIntervalType
-
-    const daysDiff = getDaysDiff(startPeriod, endDate);
-
-    const headerData: Array<HeaderData> = [];
-
-    for (let i = 0; i <= daysDiff; i++) {
-        const auxDate = new Date(new Date(startPeriod).setDate(startPeriod.getDate() + i));
-        const monthStr = getMonthLabel(auxDate.getMonth());
-        const idx = headerData.findIndex(h => getMonthLabel(h.headerDate.getMonth()) === monthStr);
-
-        if (idx < 0) {
-            headerData.push({
-                headerDate: new Date(auxDate.getFullYear(), auxDate.getMonth(), 1),
-                items: [new Date(auxDate)],
-            });
-        } else {
-            const newHeaderData = {
-                ...headerData[idx],
-                items: [...headerData[idx].items, new Date(auxDate)],
-            };
-            headerData[idx] = { ...newHeaderData };
-        }
-    }
-
-    return headerData;
 }
