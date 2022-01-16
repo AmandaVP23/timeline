@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0e0af618-b5dd-47aa-b10b-36ae4fa66695" name="Changes" comment="render header and get markers by week">
+    <list default="true" id="0e0af618-b5dd-47aa-b10b-36ae4fa66695" name="Changes" comment="changed the way markers was being populated. Count by day">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/elements/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sidebar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/elements/Timeline.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/Timeline.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/elements/TimelineContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/TimelineContent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/components/_scroll.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/components/_scroll.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/components/_header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/components/_header.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/main.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/misc.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/misc.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/dates.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/dates.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/eventItems.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/eventItems.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/header.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/header.ts" afterDir="false" />
@@ -132,7 +130,7 @@
       <workItem from="1641813212173" duration="14000" />
       <workItem from="1642152930977" duration="4821000" />
       <workItem from="1642243097172" duration="21136000" />
-      <workItem from="1642327651961" duration="5209000" />
+      <workItem from="1642327651961" duration="6608000" />
     </task>
     <task id="LOCAL-00001" summary="Changed readme to include todo list and reminders">
       <created>1637602203636</created>
@@ -246,7 +244,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642279127462</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="changed the way markers was being populated. Count by day">
+      <created>1642332917231</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1642332917231</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,7 +285,8 @@
     <MESSAGE value="renders markers by month&#10;added MutationObserver to TimelineContent cause was having a bug that only happened sometimes when getting the sidebar item" />
     <MESSAGE value="refactor the populateMarkers function to remove duplication" />
     <MESSAGE value="render header and get markers by week" />
-    <option name="LAST_COMMIT_MESSAGE" value="render header and get markers by week" />
+    <MESSAGE value="changed the way markers was being populated. Count by day" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed the way markers was being populated. Count by day" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

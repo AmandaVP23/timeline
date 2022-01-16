@@ -7,48 +7,14 @@
 import { EventItem, HeaderData, IntervalType, Marker, MarkerPosition } from '../types/misc';
 import { getDaysDiff } from './dates';
 
-const getDateStringToCompareByIntervalType = (intervalType: IntervalType, period: Date, previousMonday?: boolean) => {
-    let periodStr = '';
-    switch (intervalType) {
-        case 'day':
-            periodStr = `${period.getFullYear()}/${period.getMonth()}/${period.getDate()}`;
-            break;
-        case 'month':
-            periodStr = `${period.getFullYear()}/${period.getMonth()}`;
-            break;
-        case 'week':
-            if (previousMonday === undefined) {
-                periodStr = `${period.getFullYear()}/${period.getMonth()}/${period.getDate()}`;
-            } else if (previousMonday) {
-                let previousMondayDiff = period.getDay() === 0 ? 6 : Math.abs(1 - period.getDay());
-                const date = new Date(new Date(period).setDate(period.getDate() - previousMondayDiff));
-                periodStr = `${date.getFullYear()}/${date.getMonth()}/${date.getDate()}`;
-            } else {
-                let nextMondayDiff = period.getDay() === 0 ? 1 : Math.abs(8 - period.getDay());
-                if (period.getDay() === 1) {
-                    nextMondayDiff = 0;
-                }
-                const date = new Date(new Date(period).setDate(period.getDate() + nextMondayDiff));
-                periodStr = `${date.getFullYear()}/${date.getMonth()}/${date.getDate()}`;
-            }
-            break;
-    }
-    return periodStr;
-}
+export const populateMarkers = (intervalType: IntervalType, headerData: Array<HeaderData>, events: Array<EventItem>, itemWidth: number): Array<Marker> => {
+    if (headerData.length < 0) return [];
 
-export const populateMarkers = (intervalType: IntervalType, headerData: Array<HeaderData>, events: Array<EventItem>, itemWidth: number, groupHeight: number): Array<Marker> => {
     const newEvents = [...events];
-    let allItems: Array<Date> = [];
-    headerData.forEach(h => {
-        allItems = allItems.concat([...h.items])
-    });
-
     const markers: Array<Marker> = [];
     let maxLeftWidthMarker: Marker;
 
-    const firstDate = allItems[0];
-
-    console.log(firstDate);
+    const firstDate = headerData[0].items[0];
 
     if (!firstDate) return [];
 

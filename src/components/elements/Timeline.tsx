@@ -17,7 +17,7 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 
 interface OwnProps {
     groups: Array<Group>;
-    renderGroupItem?(group: Group): React.ReactNode;
+    renderGroupItem?(props: Object, group: Group): React.ReactNode;
     intervalType: IntervalType;
     startPeriod: Date;
     endPeriod?: Date;
@@ -44,7 +44,7 @@ const Timeline: FunctionComponent<OwnProps> = (props: OwnProps) => {
         intervalsCounter += header.items.length;
     });
 
-    const markers = populateMarkers(intervalType, headerData, events, headerItemWidth, 45);
+    const markers = populateMarkers(intervalType, headerData, events, headerItemWidth);
 
     return (
         <div className="rt-wrapper">

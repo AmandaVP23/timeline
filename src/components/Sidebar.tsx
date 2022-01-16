@@ -10,7 +10,7 @@ import { Group } from '../types/misc';
 interface OwnProps {
     groups: Array<Group>;
     groupsClass?: string;
-    renderGroupItem?(group: Group): React.ReactNode;
+    renderGroupItem?(props: Object, group: Group): React.ReactNode;
 }
 
 const Sidebar: FunctionComponent<OwnProps> = (props: OwnProps) => {
@@ -24,9 +24,13 @@ const Sidebar: FunctionComponent<OwnProps> = (props: OwnProps) => {
         <div className="ct-sidebar" id="ct-sidebar">
             {groups.map(group => {
                 // todo - send props to renderGroupItem
-                if (renderGroupItem) return renderGroupItem(group);
+                const props = {
+                    className: `ct-sidebar-group-item ${groupsClass || ''}`,
+                    'data-sidebar-item': group.id,
+                }
+                if (renderGroupItem) return renderGroupItem(props, group);
                 return (
-                    <div key={group.id} className={`ct-sidebar-group-item ${groupsClass || ''}`} data-sidebar-item={group.id}>
+                    <div key={group.id} {...props}>
                         {group.title}
                     </div>
                 );

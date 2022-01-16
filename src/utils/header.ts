@@ -4,7 +4,6 @@
  *
  */
 
-import update from 'immutability-helper';
 import { HeaderData, IntervalType } from '../types/misc';
 import { getDaysDiff, getMonthLabel, getMonthsDiff } from './dates';
 
