@@ -5,7 +5,7 @@
  */
 
 import React, { Component } from 'react';
-import { EventItem, Group, Marker } from '../../types/misc';
+import { EventItem, Group, Marker, MarkerPosition } from '../../types/misc';
 
 interface OwnProps {
     groups: Array<Group>;
@@ -17,10 +17,14 @@ interface OwnProps {
 
 interface OwnState {
     isPrepared: boolean;
+    columnsElements: Array<JSX.Element>;
+    groupElementHeight: number;
 }
 
 const initialState: OwnState = {
     isPrepared: false,
+    columnsElements: [],
+    groupElementHeight: 30,
 };
 
 class TimelineContent extends Component<OwnProps, OwnState> {
@@ -28,29 +32,51 @@ class TimelineContent extends Component<OwnProps, OwnState> {
 
     private mutationObserver: MutationObserver | null = null;
 
-    componentDidMount() {
-        const { groups } = this.props;
-        if (groups.length < 0) return;
+    constructor(props: OwnProps) {
+        super(props);
 
-        const firstGroupSidebarItem = document.querySelector(`[data-sidebar-item="${groups[0].id}"]`);
-        if (firstGroupSidebarItem) {
-            this.setState({
-                isPrepared: true,
-            });
-            return;
-        }
+        const { groups } = props;
 
         this.mutationObserver = new MutationObserver(() => {
             const firstGroupSidebarItem = document.querySelector(`[data-sidebar-item="${groups[0].id}"]`);
             if (firstGroupSidebarItem) {
                 this.setState({
                     isPrepared: true,
+                    groupElementHeight: firstGroupSidebarItem.getBoundingClientRect().height,
                 });
                 this.removeObserver();
             }
         });
 
         this.mutationObserver.observe(document, { subtree: true, childList: true });
+    }
+
+    componentDidMount() {
+        const { groups, columnsSize, headerItemWidth } = this.props;
+        if (groups.length < 0) return;
+
+        const createColumns = () => {
+            const columns = [];
+            for (let index = 0; index < columnsSize; index++) {
+                columns.push(
+                    <div key={`col-${index}`} className="ct-scroll__column" style={{ width: `${headerItemWidth}px` }} />
+                );
+            }
+            return columns;
+        }
+
+        this.setState({
+            columnsElements: createColumns(),
+        });
+
+        // const firstGroupSidebarItem = document.querySelector(`[data-sidebar-item="${groups[0].id}"]`);
+        // if (firstGroupSidebarItem) {
+        //     this.setState({
+        //         isPrepared: true,
+        //         groupElementHeight: firstGroupSidebarItem.getBoundingClientRect().height,
+        //     });
+        //     return;
+        // }
     }
 
     componentWillUnmount() {
@@ -65,19 +91,22 @@ class TimelineContent extends Component<OwnProps, OwnState> {
     }
 
     renderMarkers = (markers: Array<Marker>) => {
-        const { eventRenderer, headerItemWidth } = this.props;
+        const { eventRenderer } = this.props;
+        const { groupElementHeight } = this.state;
+
         return markers.map(marker => {
-            // @ts-ignore
-            const columnStart = (marker.left / headerItemWidth) - 1;
-            // @ts-ignore
-            const columnEnd = columnStart + (marker.width / headerItemWidth);
-            const style = {
+            let style: any = {
                 width: `${marker.width}px`,
-                marginLeft: `${marker.left}px`,
-                gridColumn: columnStart / columnEnd,
+                left: `${marker.left}px`,
                 backgroundColor: marker.backgroundColor,
-                gridRow: marker.gridRow,
+                height: marker.position === MarkerPosition.Full ? groupElementHeight : groupElementHeight / 2,
             };
+
+            if (marker.position === MarkerPosition.Bottom) {
+                style = { ...style, bottom: 0 };
+            } else {
+                style = { ...style, top: 0 };
+            }
 
             if (eventRenderer) return eventRenderer(marker, style);
 
@@ -95,9 +124,9 @@ class TimelineContent extends Component<OwnProps, OwnState> {
 
     render() {
         const {
-            markers, groups, headerItemWidth, columnsSize,
+            markers, groups,
         } = this.props;
-        const { isPrepared } = this.state;
+        const { isPrepared, columnsElements } = this.state;
 
         if (!isPrepared) return <div />;
 
@@ -106,7 +135,7 @@ class TimelineContent extends Component<OwnProps, OwnState> {
                 {groups.map((group: Group, idx: number) => {
                     const groupEvents = markers.filter(e => e.groupId === group.id);
                     const sidebarItem = document.querySelector(`[data-sidebar-item="${group.id}"]`);
-                    let minHeight = 10;
+                    let minHeight = 20;
 
                     if (sidebarItem) {
                         minHeight = sidebarItem.getBoundingClientRect().height;
@@ -118,11 +147,13 @@ class TimelineContent extends Component<OwnProps, OwnState> {
                             className="ct-scroll__line"
                             data-line-groupid={group.id}
                             style={{
-                                gridTemplateColumns: `repeat(${columnsSize}, ${headerItemWidth}px)`,
                                 minHeight: `${minHeight}px`,
                             }}
                         >
-                            {this.renderMarkers(groupEvents)}
+                            {columnsElements}
+                            <div className="ct-scroll__line__events">
+                                {this.renderMarkers(groupEvents)}
+                            </div>
                         </div>
                     );
                 })}

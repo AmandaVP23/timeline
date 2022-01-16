@@ -25,8 +25,6 @@ const Header: FunctionComponent<OwnProps> = (props: OwnProps) => {
         }
     }, [itemRef, setHeaderItemWidth]);
 
-    console.log("hereee", headerData);
-    
     return (
         <div className="ct-header" id="ct-header-root">
             {intervalType === 'month' && headerData.map(header => {

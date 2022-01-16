@@ -18,39 +18,39 @@ const groups: Array<Group> = [
 const events: Array<EventItem> = [{
     id: 11, groupId: 1,
     title: 'Event 1-1',
-    startPeriod: new Date(2021, 10, 11),
-    endPeriod: new Date(2021, 10, 18),
+    startPeriod: new Date(2021, 10, 8),
+    endPeriod: new Date(2021, 10, 15),
 }, {
     id: 12,
     groupId: 1,
     title: 'Event 1-2',
-    startPeriod: new Date(2021, 10, 13),
-    endPeriod: new Date(2021, 11, 3)
+    startPeriod: new Date(2021, 10, 10),
+    endPeriod: new Date(2021, 11, 13)
 }, {
     id: 13,
     groupId: 1,
     title: 'Event 1-3',
-    startPeriod: new Date(2021, 10, 19),
-    endPeriod: new Date(2021, 10, 22),
+    startPeriod: new Date(2021, 10, 22),
+    endPeriod: new Date(2021, 10, 29),
 }, {
     id: 14,
     groupId: 1,
     title: 'Event 1-4',
-    startPeriod: new Date(2021, 10, 24),
+    startPeriod: new Date(2021, 10, 30),
     endPeriod: new Date(2021, 11, 15)
 }, {
     id: 31,
     groupId: 3,
     title: 'Event 2-1',
-    startPeriod: new Date(2021, 10, 25),
-    endPeriod: new Date(2021, 11, 3),
+    startPeriod: new Date(2021, 11, 10),
+    endPeriod: new Date(2021, 11, 14),
     backgroundColor: '#FF1122',
 }, {
     id: 32,
     groupId: 3,
     title: 'Event 2-2',
-    startPeriod: new Date(2021, 11, 5),
-    endPeriod: new Date(2021, 11, 7),
+    startPeriod: new Date(2021, 11, 20),
+    endPeriod: new Date(2021, 11, 25),
     backgroundColor: '#FF1122',
 }];
 

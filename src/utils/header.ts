@@ -4,6 +4,7 @@
  *
  */
 
+import update from 'immutability-helper';
 import { HeaderData, IntervalType } from '../types/misc';
 import { getDaysDiff, getMonthLabel, getMonthsDiff } from './dates';
 
@@ -35,22 +36,46 @@ const handleDayIntervalType = (startPeriod: Date, endPeriod: Date) => {
 }
 
 const handleWeekIntervalType = (startPeriod: Date, endPeriod: Date) => {
-    // todo - week starts on monday
-    // todo - se o startPeriod não for uma segunda pegar a segunda anterior
-
     let startWeekDayDiff = startPeriod.getDay() === 0 ? 6 : Math.abs(1 - startPeriod.getDay());
     const startDate = new Date(new Date(startPeriod).setDate(startPeriod.getDate() - startWeekDayDiff));
 
     const endWeekDayDiff = endPeriod.getDay() === 0 ? 1 : Math.abs(8 - endPeriod.getDay());
-    let endDate = new Date(new Date(endPeriod).setDate(endPeriod.getDate() + endWeekDayDiff));
+    const endDate = new Date(new Date(endPeriod).setDate(endPeriod.getDate() + endWeekDayDiff));
 
     const daysDiff = getDaysDiff(startDate, endDate);
-    const headerData: Array<HeaderData> = [];
+    let headerData: Array<HeaderData> = [];
 
     for (let i = 0; i <= daysDiff; i += 7) {
-        const auxDate = new Date(new Date(startDate).setDate(startDate.getDate() + i));
+        const auxDate = new Date(new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate()).setDate(startDate.getDate() + i));
         const monthStr = getMonthLabel(auxDate.getMonth());
-        const idx = headerData.findIndex(h => getMonthLabel(h.headerDate.getMonth()) === monthStr);
+        const idx = headerData.findIndex(h => getMonthLabel(h.headerDate.getMonth()) === monthStr && h.headerDate.getFullYear() === auxDate.getFullYear());
+
+        if (idx < 0) {
+            headerData.push({
+                headerDate: new Date(auxDate.getFullYear(), auxDate.getMonth(), 1),
+                items: [new Date(auxDate.valueOf())],
+            });
+        } else {
+            const newHeaderData = {
+                ...headerData[idx],
+                items: [...headerData[idx].items, new Date(auxDate.valueOf())],
+            };
+            headerData[idx] = { ...newHeaderData };
+        }
+    }
+
+    return headerData;
+}
+
+const handleMonthIntervalType = (startPeriod: Date, endPeriod: Date) => {
+    // todo - corrigir isto - está a dar a mais
+    const monthsDiff = getMonthsDiff(startPeriod, endPeriod);
+    console.log("monthsDiff", monthsDiff);
+    const headerData: Array<HeaderData> = [];
+    for (let i = 0; i < monthsDiff; i++) {
+        const auxDate = new Date(new Date(startPeriod).setMonth(startPeriod.getMonth() + i));
+        const year = auxDate.getFullYear();
+        const idx = headerData.findIndex(h => h.headerDate.getFullYear() === year);
 
         if (idx < 0) {
             headerData.push({
@@ -66,36 +91,15 @@ const handleWeekIntervalType = (startPeriod: Date, endPeriod: Date) => {
         }
     }
 
-    return headerData;
-}
 
-const handleMonthIntervalType = (startPeriod: Date, endPeriod: Date) => {
-    const monthsDiff = getMonthsDiff(startPeriod, endPeriod);
-    const headerData: Array<HeaderData> = [];
-    for (let i = 0; i < monthsDiff; i++) {
-        const auxDate = new Date(new Date(startPeriod).setMonth(startPeriod.getMonth() + i));
-        const year = auxDate.getFullYear();
-        const idx = headerData.findIndex(h => h.headerDate.getFullYear() === year);
-
-        if (idx < 0) {
-            headerData.push({
-                headerDate: new Date(auxDate.getFullYear(), auxDate.getMonth(), 1),
-                items: [new Date(auxDate.getFullYear(), auxDate.getMonth(), 1)],
-            });
-        } else {
-            const newHeaderData = {
-                ...headerData[idx],
-                items: [...headerData[idx].items, new Date(auxDate.getFullYear(), auxDate.getMonth(), 1)],
-            };
-            headerData[idx] = { ...newHeaderData };
-        }
-    }
 
     return headerData;
 }
 
 export const calculateHeaderData = (intervalType: IntervalType, startPeriod: Date, endPeriod?: Date): Array<HeaderData> => {
     const endDate = endPeriod || new Date();
+
+    handleWeekIntervalType(startPeriod, endDate);
 
     switch (intervalType) {
         case 'day':

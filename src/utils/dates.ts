@@ -14,7 +14,7 @@ export const getDaysDiff = (start: Date, end: Date) => {
 
 export const getMonthsDiff = (start: Date, end: Date) => {
     const diffDays = getDaysDiff(start, end);
-    return Math.round(diffDays / 31) + 1;
+    return Math.round(diffDays / 30) + 1;
 }
 
 export const getMonthLabel = (monthNbr: number): string => {
