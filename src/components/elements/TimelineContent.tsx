@@ -7,6 +7,16 @@
 import React, { Component } from 'react';
 import { EventItem, Group, Marker, MarkerPosition } from '../../types/misc';
 
+const createColumns = (columnsSize: number, headerItemWidth: number) => {
+    const columns = [];
+    for (let index = 0; index < columnsSize; index++) {
+        columns.push(
+            <div key={`col-${index}`} className="ct-scroll__column" style={{ width: `${headerItemWidth}px` }} data-testid="scroll-line-column" />
+        );
+    }
+    return columns;
+}
+
 interface OwnProps {
     groups: Array<Group>;
     columnsSize: number;
@@ -26,14 +36,14 @@ const initialState: OwnState = {
 };
 
 class TimelineContent extends Component<OwnProps, OwnState> {
-    state = initialState;
-
     private mutationObserver: MutationObserver | null = null;
 
     constructor(props: OwnProps) {
         super(props);
 
         const { groups } = props;
+
+        this.state = initialState;
 
         this.mutationObserver = new MutationObserver(() => {
             const firstGroupSidebarItem = document.querySelector(`[data-sidebar-item="${groups[0].id}"]`);
@@ -96,19 +106,8 @@ class TimelineContent extends Component<OwnProps, OwnState> {
         const {
             markers, groups, headerItemWidth, columnsSize,
         } = this.props;
-        const { isPrepared } = this.state;
 
-        if (!isPrepared) return <div />;
-
-        const createColumns = () => {
-            const columns = [];
-            for (let index = 0; index < columnsSize; index++) {
-                columns.push(
-                    <div key={`col-${index}`} className="ct-scroll__column" style={{ width: `${headerItemWidth}px` }} />
-                );
-            }
-            return columns;
-        }
+        console.log("headerItemWidth", headerItemWidth);
 
         return (
             <div className="ct-scroll">
@@ -129,8 +128,9 @@ class TimelineContent extends Component<OwnProps, OwnState> {
                             style={{
                                 minHeight: `${minHeight}px`,
                             }}
+                            data-testid={`scroll-line-${group.id}`}
                         >
-                            {createColumns()}
+                            {createColumns(columnsSize, headerItemWidth)}
                             <div className="ct-scroll__line__events">
                                 {this.renderMarkers(groupEvents)}
                             </div>

@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0e0af618-b5dd-47aa-b10b-36ae4fa66695" name="Changes" comment="changed the way markers was being populated. Count by day">
+    <list default="true" id="0e0af618-b5dd-47aa-b10b-36ae4fa66695" name="Changes" comment="fixed a few bugs and cleaned some todos">
+      <change afterPath="$PROJECT_DIR$/src/__tests__/components/Timeline.test.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/__tests__/components/elements/Header.test.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/__tests__/components/elements/Sidebar.test.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/__tests__/components/elements/TimelineContent.test.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/__tests__/utils/dates.test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/__tests__/utils/eventItems.test.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/__tests__/utils/header.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/elements/Timeline.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/Timeline.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/Sidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/elements/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/elements/Timeline.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Timeline.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/elements/TimelineContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/TimelineContent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/components/_header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/components/_header.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/main.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/dates.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/dates.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/eventItems.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/eventItems.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/header.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/header.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
@@ -23,7 +28,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/render-event" />
+        <entry key="$PROJECT_DIR$" value="feature/render-months-week" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -44,6 +49,10 @@
             <RecentBranchesForRepo>
               <option name="branches">
                 <list>
+                  <RecentBranch>
+                    <option name="branchName" value="tests" />
+                    <option name="lastUsedInstant" value="1642334442" />
+                  </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="feature/render-months-week" />
                     <option name="lastUsedInstant" value="1641330008" />
@@ -73,6 +82,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/utils" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/react-scripts" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
@@ -82,9 +92,105 @@
       <recent name="$PROJECT_DIR$/src/utils" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/components/elements" />
+      <recent name="$PROJECT_DIR$/src/__tests__/components/elements" />
       <recent name="$PROJECT_DIR$/src/components" />
+      <recent name="$PROJECT_DIR$/src/components/elements" />
     </key>
+  </component>
+  <component name="RunManager" selected="Jest.header utils test.calculateHeaderData - month">
+    <configuration default="true" type="JavaScriptTestRunnerJest">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <working-dir value="" />
+      <jest-options value="--env=jest-environment-jsdom-sixteen" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method v="2" />
+    </configuration>
+    <configuration name="eventItems utils test.handles has empty header data" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <jest-options value="--env=jest-environment-jsdom-sixteen" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/utils/eventItems.test.tsx" />
+      <test-names>
+        <test-name value="eventItems utils test" />
+        <test-name value="handles has empty header data" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="eventItems utils test.handles has empty header date items" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <jest-options value="--env=jest-environment-jsdom-sixteen" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/utils/eventItems.test.tsx" />
+      <test-names>
+        <test-name value="eventItems utils test" />
+        <test-name value="handles has empty header date items" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="header utils test.calculateHeaderData - day" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <jest-options value="--env=jest-environment-jsdom-sixteen" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/utils/header.test.ts" />
+      <test-names>
+        <test-name value="header utils test" />
+        <test-name value="calculateHeaderData - day" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="header utils test.calculateHeaderData - month" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <jest-options value="--env=jest-environment-jsdom-sixteen" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/utils/header.test.ts" />
+      <test-names>
+        <test-name value="header utils test" />
+        <test-name value="calculateHeaderData - month" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="header utils test.calculateHeaderData - week" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <jest-options value="--env=jest-environment-jsdom-sixteen" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/utils/header.test.ts" />
+      <test-names>
+        <test-name value="header utils test" />
+        <test-name value="calculateHeaderData - week" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Jest.header utils test.calculateHeaderData - month" />
+        <item itemvalue="Jest.header utils test.calculateHeaderData - week" />
+        <item itemvalue="Jest.header utils test.calculateHeaderData - day" />
+        <item itemvalue="Jest.eventItems utils test.handles has empty header data" />
+        <item itemvalue="Jest.eventItems utils test.handles has empty header date items" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -130,7 +236,7 @@
       <workItem from="1641813212173" duration="14000" />
       <workItem from="1642152930977" duration="4821000" />
       <workItem from="1642243097172" duration="21136000" />
-      <workItem from="1642327651961" duration="6608000" />
+      <workItem from="1642327651961" duration="13546000" />
     </task>
     <task id="LOCAL-00001" summary="Changed readme to include todo list and reminders">
       <created>1637602203636</created>
@@ -251,7 +357,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642332917231</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="fixed a few bugs and cleaned some todos">
+      <created>1642334358019</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1642334358019</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -286,7 +399,8 @@
     <MESSAGE value="refactor the populateMarkers function to remove duplication" />
     <MESSAGE value="render header and get markers by week" />
     <MESSAGE value="changed the way markers was being populated. Count by day" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed the way markers was being populated. Count by day" />
+    <MESSAGE value="fixed a few bugs and cleaned some todos" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed a few bugs and cleaned some todos" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

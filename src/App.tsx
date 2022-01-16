@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import Timeline from './components/elements/Timeline';
+import Timeline from './components/Timeline';
 import { Group, EventItem } from './types/misc';
 
 const groups: Array<Group> = [
@@ -64,10 +64,10 @@ function App() {
     return (
         <Timeline
             groups={groups}
-            intervalType="day"
-            startPeriod={new Date(2021, 10, 7)}
-            endPeriod={new Date(2021, 11, 24)}
-            events={events}
+            intervalType="month"
+            startPeriod={new Date(2021, 11, 7)}
+            endPeriod={new Date(2022, 0, 24)}
+            events={[]}
             //eventRenderer={eventRenderer}
         />
     );

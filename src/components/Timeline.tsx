@@ -5,12 +5,12 @@
  */
 
 import React, { FunctionComponent, useState } from 'react';
-import Sidebar from '../Sidebar';
-import { EventItem, Group, IntervalType } from '../../types/misc';
-import Header from './Header';
-import TimelineContent from './TimelineContent';
-import { calculateHeaderData } from '../../utils/header';
-import { populateMarkers } from '../../utils/eventItems';
+import Sidebar from './elements/Sidebar';
+import { EventItem, Group, IntervalType } from '../types/misc';
+import Header from './elements/Header';
+import TimelineContent from './elements/TimelineContent';
+import { calculateHeaderData } from '../utils/header';
+import { populateMarkers } from '../utils/eventItems';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 
 import 'react-perfect-scrollbar/dist/css/styles.css';
