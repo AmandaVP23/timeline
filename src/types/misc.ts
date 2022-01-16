@@ -25,6 +25,12 @@ export interface EventItem {
     backgroundColor?: string;
 }
 
+export enum MarkerPosition {
+    Top = 'top',
+    Bottom = 'bottom',
+    Full = 'full',
+}
+
 export interface Marker {
     id: number | string;
     groupId: number | string;
@@ -34,5 +40,5 @@ export interface Marker {
     width: number;
     left: number;
     backgroundColor?: string;
-    gridRow: string;
+    position: MarkerPosition;
 }

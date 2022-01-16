@@ -110,15 +110,23 @@ body {
  *
  */
 .ct-scroll {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
   background-color: darkslategray;
-  position: relative;
 }
 .ct-scroll__line {
-  display: grid;
-  padding: 2px 0;
+  display: inline-flex;
+  position: relative;
+}
+.ct-scroll__line__events {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 .ct-scroll__line .ct-event {
+  position: absolute;
   background-color: yellow;
   border-radius: 2px;
   border: 1px solid #000;
@@ -127,6 +135,16 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: inherit;
+}
+.ct-scroll__column {
+  display: flex;
+  align-items: center;
+  border: 1px solid grey;
+  min-height: 30px;
 }
 
 /*# sourceMappingURL=main.css.map */
