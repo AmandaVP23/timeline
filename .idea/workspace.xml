@@ -1,24 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0e0af618-b5dd-47aa-b10b-36ae4fa66695" name="Changes" comment="fixed a few bugs and cleaned some todos">
-      <change afterPath="$PROJECT_DIR$/src/__tests__/components/Timeline.test.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/__tests__/components/elements/Header.test.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/__tests__/components/elements/Sidebar.test.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/__tests__/components/elements/TimelineContent.test.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/__tests__/utils/dates.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/__tests__/utils/eventItems.test.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/__tests__/utils/header.test.ts" afterDir="false" />
+    <list default="true" id="0e0af618-b5dd-47aa-b10b-36ae4fa66695" name="Changes" comment="tests start">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/Sidebar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/elements/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/elements/Timeline.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Timeline.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/elements/TimelineContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/TimelineContent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/eventItems.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/eventItems.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/header.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/header.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/components/_header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/components/_header.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/main.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/dates.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/dates.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,7 +225,9 @@
       <workItem from="1641813212173" duration="14000" />
       <workItem from="1642152930977" duration="4821000" />
       <workItem from="1642243097172" duration="21136000" />
-      <workItem from="1642327651961" duration="13546000" />
+      <workItem from="1642327651961" duration="14615000" />
+      <workItem from="1642409615585" duration="3000" />
+      <workItem from="1642409647475" duration="1020000" />
     </task>
     <task id="LOCAL-00001" summary="Changed readme to include todo list and reminders">
       <created>1637602203636</created>
@@ -364,7 +355,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642334358019</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="tests start">
+      <created>1642347513198</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1642347513198</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -400,7 +398,8 @@
     <MESSAGE value="render header and get markers by week" />
     <MESSAGE value="changed the way markers was being populated. Count by day" />
     <MESSAGE value="fixed a few bugs and cleaned some todos" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed a few bugs and cleaned some todos" />
+    <MESSAGE value="tests start" />
+    <option name="LAST_COMMIT_MESSAGE" value="tests start" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

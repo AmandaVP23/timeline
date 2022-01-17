@@ -29,6 +29,7 @@ const Header: FunctionComponent<OwnProps> = (props: OwnProps) => {
         <div className="ct-header" id="ct-header-root">
             {intervalType === 'month' && headerData.map(header => {
                 const year = header.headerDate.getFullYear();
+
                 return (
                     <div key={year} className="ct-header__group">
                         <div className="ct-header__group__top">
@@ -53,6 +54,7 @@ const Header: FunctionComponent<OwnProps> = (props: OwnProps) => {
             })}
             {(intervalType === 'day' || intervalType === 'week') && headerData.map(header => {
                 const month = getMonthLabel(header.headerDate.getMonth());
+
                 return (
                     <div key={month} className="ct-header__group">
                         <div className="ct-header__group__top">
@@ -65,6 +67,7 @@ const Header: FunctionComponent<OwnProps> = (props: OwnProps) => {
                                         key={`${month}-${interval}`}
                                         ref={itemRef}
                                         className="ct-header__group__bottom__item"
+                                        data-testid={`header-item-${month.toLowerCase()}-${interval.getDate()}`}
                                     >
                                         {interval.getDate()}
                                     </div>
