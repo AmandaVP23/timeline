@@ -67,9 +67,8 @@ const handleWeekIntervalType = (startPeriod: Date, endPeriod: Date) => {
 }
 
 const handleMonthIntervalType = (startPeriod: Date, endPeriod: Date) => {
-    // todo - corrigir isto - está a dar a mais
     const monthsDiff = getMonthsDiff(startPeriod, endPeriod);
-    console.log("monthsDiff", monthsDiff);
+
     const headerData: Array<HeaderData> = [];
     for (let i = 0; i < monthsDiff; i++) {
         const auxDate = new Date(new Date(startPeriod).setMonth(startPeriod.getMonth() + i));
@@ -90,15 +89,11 @@ const handleMonthIntervalType = (startPeriod: Date, endPeriod: Date) => {
         }
     }
 
-
-
     return headerData;
 }
 
 export const calculateHeaderData = (intervalType: IntervalType, startPeriod: Date, endPeriod?: Date): Array<HeaderData> => {
     const endDate = endPeriod || new Date();
-
-    handleWeekIntervalType(startPeriod, endDate);
 
     switch (intervalType) {
         case 'day':
@@ -106,7 +101,6 @@ export const calculateHeaderData = (intervalType: IntervalType, startPeriod: Dat
         case 'week':
             return handleWeekIntervalType(startPeriod, endDate);
         case 'month':
-            // todo - se não tiver mais que um mes entre start e end mostrar dias
             return handleMonthIntervalType(startPeriod, endDate);
     }
 }

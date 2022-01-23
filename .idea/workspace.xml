@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0e0af618-b5dd-47aa-b10b-36ae4fa66695" name="Changes" comment="changed the way markers was being populated. Count by day">
+    <list default="true" id="0e0af618-b5dd-47aa-b10b-36ae4fa66695" name="Changes" comment="tests start">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/elements/Timeline.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/Timeline.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/elements/TimelineContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/TimelineContent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/components/_header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/components/_header.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/main.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/__tests__/components/Timeline.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/components/Timeline.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/__tests__/components/elements/Header.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/components/elements/Header.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/__tests__/utils/dates.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/utils/dates.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Timeline.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Timeline.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/dates.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/dates.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/eventItems.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/eventItems.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/header.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/header.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +21,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/render-event" />
+        <entry key="$PROJECT_DIR$" value="feature/render-months-week" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -44,6 +42,10 @@
             <RecentBranchesForRepo>
               <option name="branches">
                 <list>
+                  <RecentBranch>
+                    <option name="branchName" value="tests" />
+                    <option name="lastUsedInstant" value="1642334442" />
+                  </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="feature/render-months-week" />
                     <option name="lastUsedInstant" value="1641330008" />
@@ -73,18 +75,114 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/utils" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/react-scripts" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/utils" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/components/elements" />
+      <recent name="$PROJECT_DIR$/src/__tests__/components/elements" />
       <recent name="$PROJECT_DIR$/src/components" />
+      <recent name="$PROJECT_DIR$/src/components/elements" />
     </key>
+  </component>
+  <component name="RunManager" selected="Jest.dates utils test.getMonthsDiff">
+    <configuration name="Header test" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <jest-options value="--env=jest-environment-jsdom-sixteen" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/components/elements/Header.test.tsx" />
+      <test-names>
+        <test-name value="Header test" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Header test.calls setHeaderItemWidth" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <jest-options value="--env=jest-environment-jsdom-sixteen" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/components/elements/Header.test.tsx" />
+      <test-names>
+        <test-name value="Header test" />
+        <test-name value="calls setHeaderItemWidth" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Timeline tests.renders correctly with day interval" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <jest-options value="--env=jest-environment-jsdom-sixteen" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/components/Timeline.test.tsx" />
+      <test-names>
+        <test-name value="Timeline tests" />
+        <test-name value="renders correctly with day interval" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <working-dir value="" />
+      <jest-options value="--env=jest-environment-jsdom-sixteen" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method v="2" />
+    </configuration>
+    <configuration name="dates utils test.getMonthsDiff" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <jest-options value="--env=jest-environment-jsdom-sixteen" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/utils/dates.test.ts" />
+      <test-names>
+        <test-name value="dates utils test" />
+        <test-name value="getMonthsDiff" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="header utils test.calculateHeaderData - month" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <jest-options value="--env=jest-environment-jsdom-sixteen" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/utils/header.test.ts" />
+      <test-names>
+        <test-name value="header utils test" />
+        <test-name value="calculateHeaderData - month" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Jest.dates utils test.getMonthsDiff" />
+        <item itemvalue="Jest.Timeline tests.renders correctly with day interval" />
+        <item itemvalue="Jest.Header test" />
+        <item itemvalue="Jest.Header test.calls setHeaderItemWidth" />
+        <item itemvalue="Jest.header utils test.calculateHeaderData - month" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -130,7 +228,11 @@
       <workItem from="1641813212173" duration="14000" />
       <workItem from="1642152930977" duration="4821000" />
       <workItem from="1642243097172" duration="21136000" />
-      <workItem from="1642327651961" duration="6608000" />
+      <workItem from="1642327651961" duration="14615000" />
+      <workItem from="1642409615585" duration="3000" />
+      <workItem from="1642409647475" duration="1029000" />
+      <workItem from="1642676864301" duration="345000" />
+      <workItem from="1642952410963" duration="2722000" />
     </task>
     <task id="LOCAL-00001" summary="Changed readme to include todo list and reminders">
       <created>1637602203636</created>
@@ -251,7 +353,28 @@
       <option name="project" value="LOCAL" />
       <updated>1642332917231</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="fixed a few bugs and cleaned some todos">
+      <created>1642334358019</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1642334358019</updated>
+    </task>
+    <task id="LOCAL-00019" summary="tests start">
+      <created>1642347513198</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1642347513198</updated>
+    </task>
+    <task id="LOCAL-00020" summary="tests start">
+      <created>1642416936418</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1642416936418</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -286,7 +409,9 @@
     <MESSAGE value="refactor the populateMarkers function to remove duplication" />
     <MESSAGE value="render header and get markers by week" />
     <MESSAGE value="changed the way markers was being populated. Count by day" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed the way markers was being populated. Count by day" />
+    <MESSAGE value="fixed a few bugs and cleaned some todos" />
+    <MESSAGE value="tests start" />
+    <option name="LAST_COMMIT_MESSAGE" value="tests start" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

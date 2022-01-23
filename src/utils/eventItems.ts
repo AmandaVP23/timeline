@@ -8,7 +8,7 @@ import { EventItem, HeaderData, IntervalType, Marker, MarkerPosition } from '../
 import { getDaysDiff } from './dates';
 
 export const populateMarkers = (intervalType: IntervalType, headerData: Array<HeaderData>, events: Array<EventItem>, itemWidth: number): Array<Marker> => {
-    if (headerData.length < 0) return [];
+    if (headerData.length === 0) return [];
 
     const newEvents = [...events];
     const markers: Array<Marker> = [];

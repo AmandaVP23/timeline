@@ -5,15 +5,20 @@
  */
 
 .ct-header {
-    display: inline-flex;
-    justify-content: center;
+    //display: inline-flex;
+    //justify-content: center;
     background-color: black;
     color: white;
     font-size: 14px;
+    display: inline-grid;
+    grid-template-rows: 1fr;
 
     &__group {
-        display: flex;
-        flex-direction: column;
+        //display: flex;
+        //flex-direction: column;
+        grid-row: 1 / 2;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
 
         &__top {
             display: inline-flex;
@@ -24,6 +29,7 @@
             border-top: 1px solid #BBBBBB;
             border-right: 1px solid #BBBBBB;
             border-left: 1px solid #BBBBBB;
+            grid-row: 1 / 2;
         }
 
         &__bottom {
@@ -32,6 +38,7 @@
             justify-content: space-around;
             height: 30px;
             width: 100%;
+            grid-row: 2 / 3;
 
             &__item {
                 display: inline-flex;

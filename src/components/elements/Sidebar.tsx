@@ -5,7 +5,7 @@
  */
 
 import React, { FunctionComponent } from 'react';
-import { Group } from '../types/misc';
+import { Group } from '../../types/misc';
 
 interface OwnProps {
     groups: Array<Group>;
@@ -23,7 +23,6 @@ const Sidebar: FunctionComponent<OwnProps> = (props: OwnProps) => {
     return (
         <div className="ct-sidebar" id="ct-sidebar">
             {groups.map(group => {
-                // todo - send props to renderGroupItem
                 const props = {
                     className: `ct-sidebar-group-item ${groupsClass || ''}`,
                     'data-sidebar-item': group.id,
