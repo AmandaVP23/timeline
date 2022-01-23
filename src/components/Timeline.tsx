@@ -17,11 +17,11 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 
 interface OwnProps {
     groups: Array<Group>;
-    renderGroupItem?(props: Object, group: Group): React.ReactNode;
     intervalType: IntervalType;
     startPeriod: Date;
     endPeriod?: Date;
     events: Array<EventItem>;
+    renderGroupItem?(props: Object, group: Group): React.ReactNode;
     eventRenderer?(eventItem: EventItem, style: any): JSX.Element;
 }
 

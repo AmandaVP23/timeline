@@ -38,12 +38,12 @@ describe('Header test', () => {
             intervalType="day"
         />);
 
-        expect(getByText('November')).toBeInTheDocument();
-        expect(getByText('December')).toBeInTheDocument();
-        expect(getByTestId('header-item-november-5')).toBeInTheDocument();
-        expect(getByTestId('header-item-november-6')).toBeInTheDocument();
-        expect(getByTestId('header-item-december-2')).toBeInTheDocument();
-        expect(getByTestId('header-item-december-3')).toBeInTheDocument();
+        expect(getByText('Nov')).toBeInTheDocument();
+        expect(getByText('Dec')).toBeInTheDocument();
+        expect(getByTestId('header-item-nov-5')).toBeInTheDocument();
+        expect(getByTestId('header-item-nov-6')).toBeInTheDocument();
+        expect(getByTestId('header-item-dec-2')).toBeInTheDocument();
+        expect(getByTestId('header-item-dec-3')).toBeInTheDocument();
     });
 
     it('handles week interval type', () => {
@@ -53,12 +53,12 @@ describe('Header test', () => {
             intervalType="week"
         />);
 
-        expect(getByText('November')).toBeInTheDocument();
-        expect(getByText('December')).toBeInTheDocument();
-        expect(getByTestId('header-item-november-5')).toBeInTheDocument();
-        expect(getByTestId('header-item-november-6')).toBeInTheDocument();
-        expect(getByTestId('header-item-december-2')).toBeInTheDocument();
-        expect(getByTestId('header-item-december-3')).toBeInTheDocument();
+        expect(getByText('Nov')).toBeInTheDocument();
+        expect(getByText('Dec')).toBeInTheDocument();
+        expect(getByTestId('header-item-nov-5')).toBeInTheDocument();
+        expect(getByTestId('header-item-nov-6')).toBeInTheDocument();
+        expect(getByTestId('header-item-dec-2')).toBeInTheDocument();
+        expect(getByTestId('header-item-dec-3')).toBeInTheDocument();
     });
 
     it('handles month interval type', () => {
@@ -73,7 +73,7 @@ describe('Header test', () => {
         />);
 
         expect(getByText('2021')).toBeInTheDocument();
-        expect(getByText('November')).toBeInTheDocument();
-        expect(getByText('December')).toBeInTheDocument();
+        expect(getByText('Nov')).toBeInTheDocument();
+        expect(getByText('Dec')).toBeInTheDocument();
     });
 });

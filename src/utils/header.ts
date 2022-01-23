@@ -101,7 +101,6 @@ export const calculateHeaderData = (intervalType: IntervalType, startPeriod: Dat
         case 'week':
             return handleWeekIntervalType(startPeriod, endDate);
         case 'month':
-            // todo - se não tiver mais que um mes entre start e end mostrar dias
             return handleMonthIntervalType(startPeriod, endDate);
     }
 }

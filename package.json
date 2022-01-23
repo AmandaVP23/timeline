@@ -1,6 +1,7 @@
 {
     "name": "calendar-timeline",
-    "version": "0.1.0",
+    "version": "1.0.0",
+    "author": "VOID Software",
     "private": true,
     "dependencies": {
         "@types/node": "^12.0.0",

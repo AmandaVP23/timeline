@@ -14,44 +14,44 @@ describe('dates utils test', () => {
 
     it('getMonthsDiff', () => {
         const result = getMonthsDiff(new Date(2021, 9, 5), new Date(2021, 11, 5));
-        expect(result).toBe(2);
+        expect(result).toBe(3);
     });
 
     it('getMonthLabel', () => {
         let result = getMonthLabel(0);
-        expect(result).toBe('January');
+        expect(result).toBe('Jan');
 
         result = getMonthLabel(1);
-        expect(result).toBe('February');
+        expect(result).toBe('Feb');
 
         result = getMonthLabel(2);
-        expect(result).toBe('March');
+        expect(result).toBe('Mar');
 
         result = getMonthLabel(3);
-        expect(result).toBe('April');
+        expect(result).toBe('Apr');
 
         result = getMonthLabel(4);
         expect(result).toBe('May');
 
         result = getMonthLabel(5);
-        expect(result).toBe('June');
+        expect(result).toBe('Jun');
 
         result = getMonthLabel(6);
-        expect(result).toBe('July');
+        expect(result).toBe('Jul');
 
         result = getMonthLabel(7);
-        expect(result).toBe('August');
+        expect(result).toBe('Aug');
 
         result = getMonthLabel(8);
-        expect(result).toBe('September');
+        expect(result).toBe('Sep');
 
         result = getMonthLabel(9);
-        expect(result).toBe('October');
+        expect(result).toBe('Oct');
 
         result = getMonthLabel(10);
-        expect(result).toBe('November');
+        expect(result).toBe('Nov');
 
         result = getMonthLabel(11);
-        expect(result).toBe('December');
+        expect(result).toBe('Dec');
     });
 });
