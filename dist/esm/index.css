@@ -1,0 +1,275 @@
+/**
+ *
+ * @Copyright 2021 VOID SOFTWARE, S.A.
+ *
+ */
+/**
+ *
+ * @Copyright 2021 VOID SOFTWARE, S.A.
+ *
+ */
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/**
+ *
+ * @Copyright 2021 VOID SOFTWARE, S.A.
+ *
+ */
+.rt-wrapper {
+  display: inline-flex;
+  width: 100%;
+}
+
+.rt-outer {
+  display: flex;
+}
+
+.rt-container {
+  overflow: hidden;
+  position: relative;
+  display: inline-grid;
+}
+
+/**
+ *
+ * @Copyright 2021 VOID SOFTWARE, S.A.
+ *
+ */
+.ct-header {
+  background-color: black;
+  color: white;
+  font-size: 14px;
+  display: inline-grid;
+  grid-template-rows: 1fr;
+}
+.ct-header__group {
+  grid-row: 1/2;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+.ct-header__group__top {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 100%;
+  border-top: 1px solid #BBBBBB;
+  border-right: 1px solid #BBBBBB;
+  border-left: 1px solid #BBBBBB;
+  grid-row: 1/2;
+}
+.ct-header__group__bottom {
+  display: inline-flex;
+  border-top: 1px solid #BBBBBB;
+  justify-content: space-around;
+  height: 30px;
+  width: 100%;
+  grid-row: 2/3;
+}
+.ct-header__group__bottom__item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+  width: 100%;
+  border-right: 1px solid #BBBBBB;
+  border-left: 1px solid #BBBBBB;
+  padding: 5px 10px;
+}
+
+/**
+ *
+ * @Copyright 2021 VOID SOFTWARE, S.A.
+ *
+ */
+.ct-sidebar {
+  width: 200px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex: 1 0 auto;
+  max-width: 200px;
+}
+.ct-sidebar .ct-sidebar-group-item {
+  display: flex;
+  align-items: center;
+  height: 45px;
+  background-color: #F3F3F3;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+  border-left: 1px solid grey;
+}
+
+/**
+ *
+ * @Copyright 2021 VOID SOFTWARE, S.A.
+ *
+ */
+.ct-scroll {
+  display: flex;
+  flex-direction: column;
+  background-color: darkslategray;
+}
+.ct-scroll__line {
+  display: inline-flex;
+  position: relative;
+}
+.ct-scroll__line__events {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.ct-scroll__line .ct-event {
+  position: absolute;
+  background-color: yellow;
+  border-radius: 2px;
+  border: 1px solid #000;
+  text-align: center;
+  align-content: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: inherit;
+}
+.ct-scroll__column {
+  display: flex;
+  align-items: center;
+  border: 1px solid grey;
+  min-height: 30px;
+}
+
+/*# sourceMappingURL=main.css.map */
+
+/*
+ * Container style
+ */
+.ps {
+  overflow: hidden !important;
+  overflow-anchor: none;
+  -ms-overflow-style: none;
+  touch-action: auto;
+  -ms-touch-action: auto;
+}
+
+/*
+ * Scrollbar rail styles
+ */
+.ps__rail-x {
+  display: none;
+  opacity: 0;
+  transition: background-color .2s linear, opacity .2s linear;
+  -webkit-transition: background-color .2s linear, opacity .2s linear;
+  height: 15px;
+  /* there must be 'bottom' or 'top' for ps__rail-x */
+  bottom: 0px;
+  /* please don't change 'position' */
+  position: absolute;
+}
+
+.ps__rail-y {
+  display: none;
+  opacity: 0;
+  transition: background-color .2s linear, opacity .2s linear;
+  -webkit-transition: background-color .2s linear, opacity .2s linear;
+  width: 15px;
+  /* there must be 'right' or 'left' for ps__rail-y */
+  right: 0;
+  /* please don't change 'position' */
+  position: absolute;
+}
+
+.ps--active-x > .ps__rail-x,
+.ps--active-y > .ps__rail-y {
+  display: block;
+  background-color: transparent;
+}
+
+.ps:hover > .ps__rail-x,
+.ps:hover > .ps__rail-y,
+.ps--focus > .ps__rail-x,
+.ps--focus > .ps__rail-y,
+.ps--scrolling-x > .ps__rail-x,
+.ps--scrolling-y > .ps__rail-y {
+  opacity: 0.6;
+}
+
+.ps .ps__rail-x:hover,
+.ps .ps__rail-y:hover,
+.ps .ps__rail-x:focus,
+.ps .ps__rail-y:focus,
+.ps .ps__rail-x.ps--clicking,
+.ps .ps__rail-y.ps--clicking {
+  background-color: #eee;
+  opacity: 0.9;
+}
+
+/*
+ * Scrollbar thumb styles
+ */
+.ps__thumb-x {
+  background-color: #aaa;
+  border-radius: 6px;
+  transition: background-color .2s linear, height .2s ease-in-out;
+  -webkit-transition: background-color .2s linear, height .2s ease-in-out;
+  height: 6px;
+  /* there must be 'bottom' for ps__thumb-x */
+  bottom: 2px;
+  /* please don't change 'position' */
+  position: absolute;
+}
+
+.ps__thumb-y {
+  background-color: #aaa;
+  border-radius: 6px;
+  transition: background-color .2s linear, width .2s ease-in-out;
+  -webkit-transition: background-color .2s linear, width .2s ease-in-out;
+  width: 6px;
+  /* there must be 'right' for ps__thumb-y */
+  right: 2px;
+  /* please don't change 'position' */
+  position: absolute;
+}
+
+.ps__rail-x:hover > .ps__thumb-x,
+.ps__rail-x:focus > .ps__thumb-x,
+.ps__rail-x.ps--clicking .ps__thumb-x {
+  background-color: #999;
+  height: 11px;
+}
+
+.ps__rail-y:hover > .ps__thumb-y,
+.ps__rail-y:focus > .ps__thumb-y,
+.ps__rail-y.ps--clicking .ps__thumb-y {
+  background-color: #999;
+  width: 11px;
+}
+
+/* MS supports */
+@supports (-ms-overflow-style: none) {
+  .ps {
+    overflow: auto !important;
+  }
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .ps {
+    overflow: auto !important;
+  }
+}
+.scrollbar-container {
+  position: relative;
+  height: 100%; }
+
+/*# sourceMappingURL=styles.css.map*/
